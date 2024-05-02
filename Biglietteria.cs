@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace ProgettoTreno
 {
-    internal class Biglietteria
+    internal class Biglietteria()
     {
+        public Biglietto CreaBiglietto()
+        { 
+            return new Biglietto();
+        }
     }
 
-    internal class Biglietto 
+    internal class Biglietto()
     { 
         
     }

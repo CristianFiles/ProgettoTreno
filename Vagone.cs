@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace ProgettoTreno
 {
-    internal abstract class Vagone
+    internal abstract class Vagone(int posti)
     {
-        int posti;
+        private readonly int posti = posti;
         internal int passeggeri = 0;
-
-        public Vagone(int posti, float prezzoPosto)
+        public virtual bool AccessoWIFI
         {
-            this.posti = posti;
-            
+            get => false;
+        }
+
+        public virtual bool Caricatori 
+        { 
+            get => false;
         }
 
         public virtual bool Scendi() 
@@ -38,25 +41,23 @@ namespace ProgettoTreno
         }
     }
 
-    internal class PrimaClasse : Vagone
+    internal class PrimaClasse(int posti) : Vagone(posti)
     {
-        public PrimaClasse(int posti, float prezzoPosto) : base(posti, prezzoPosto) { }
+        public override bool AccessoWIFI => true;
+        public override bool Caricatori => true;
     }
 
-    internal class SecondaClasse : Vagone
+    internal class SecondaClasse(int posti) : Vagone(posti)
     {
-        public SecondaClasse(int posti, float prezzoPosto) : base(posti, prezzoPosto) { }
+        public override bool AccessoWIFI => true;
     }
 
-    internal class Fumatori : Vagone
+    internal class Fumatori(int posti) : Vagone(posti)
     {
-        public Fumatori(int posti, float prezzoPosto) : base(posti, prezzoPosto) { }
     }
 
-    internal class Ristorante : Vagone
+    internal class Ristorante(int posti) : Vagone(posti)
     {
-        public Ristorante(int posti, float prezzoPosto) : base(posti, prezzoPosto) { }
-
         public override bool Sali()
         {
             return false;
@@ -67,10 +68,10 @@ namespace ProgettoTreno
             return false;
         }
     }
-    internal class Cuccette : Vagone
+    internal class Cuccette(int posti) : Vagone(posti)
     {
-        public Cuccette(int posti, float prezzoPosto) : base(posti, prezzoPosto) { }
-
+        public override bool AccessoWIFI => true;
+        public override bool Caricatori => true;
         public override bool Sali()
         {
             return false;
@@ -83,10 +84,8 @@ namespace ProgettoTreno
     }
 
 
-    internal class Silenzio : Vagone
+    internal class Silenzio(int posti) : Vagone(posti)
     {
-        public Silenzio(int posti, float prezzoPosto) : base(posti, prezzoPosto) { }
-
         public override bool Sali()
         {
             return false;
