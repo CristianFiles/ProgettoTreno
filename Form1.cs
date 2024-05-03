@@ -15,9 +15,14 @@ namespace ProgettoTreno
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void NuovoBiglietto_Click(object sender, EventArgs e)
         {
-            biglietto = biglietteria.CreaBiglietto();
+            if (biglietto == null)
+                biglietto = biglietteria.CreaBiglietto(TipiBiglietti.SelectedIndex);
+            else 
+            {
+                MessageBox.Show("Hai già acquistato un biglietto!");
+            }
         }
         
     }

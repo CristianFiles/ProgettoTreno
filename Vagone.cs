@@ -10,6 +10,12 @@ namespace ProgettoTreno
     {
         private readonly int posti = posti;
         internal int passeggeri = 0;
+
+        public int Disponibili
+        {
+            get => posti - passeggeri;
+        }
+
         public virtual bool AccessoWIFI
         {
             get => false;
@@ -35,10 +41,26 @@ namespace ProgettoTreno
             return false;
         }
 
-        public int Disponibili
+        //Metodo per far salire più persone in una volta, ritorna il numero di passeggeri che non sono riusciti a salire su questo vagone
+        public virtual Tuple<bool, int> ClusterSali(int saliti) 
         {
-            get => posti - passeggeri;
+            int avanzati = passeggeri + saliti - posti;
+            passeggeri = posti;
+            if (avanzati > 0)
+                return new Tuple <bool, int> (false,avanzati);
+            else
+                return new Tuple<bool, int> (true, 0);
         }
+
+        //Metodo per far scendere più persone in una volta
+        public virtual bool ClusterScendi(int scesi) 
+        { 
+            passeggeri -= scesi;
+            if (passeggeri < 0)
+                passeggeri = 0;
+            return true;
+        }
+        
     }
 
     internal class PrimaClasse(int posti) : Vagone(posti)
@@ -67,6 +89,16 @@ namespace ProgettoTreno
         {
             return false;
         }
+
+        public override Tuple<bool, int> ClusterSali(int saliti)
+        {
+            return new Tuple<bool, int> (false, saliti);
+        }
+
+        public override bool ClusterScendi(int scesi)
+        {
+            return false;
+        }
     }
     internal class Cuccette(int posti) : Vagone(posti)
     {
@@ -81,6 +113,16 @@ namespace ProgettoTreno
         {
             return false;
         }
+
+        public override Tuple<bool, int> ClusterSali(int saliti)
+        {
+            return new Tuple<bool, int>(false, saliti);
+        }
+
+        public override bool ClusterScendi(int scesi)
+        {
+            return false;
+        }
     }
 
 
@@ -92,6 +134,16 @@ namespace ProgettoTreno
         }
 
         public override bool Scendi()
+        {
+            return false;
+        }
+
+        public override Tuple<bool, int> ClusterSali(int saliti)
+        {
+            return new Tuple<bool, int>(false, saliti);
+        }
+
+        public override bool ClusterScendi(int scesi)
         {
             return false;
         }

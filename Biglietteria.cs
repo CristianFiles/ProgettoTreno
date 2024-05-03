@@ -8,14 +8,24 @@ namespace ProgettoTreno
 {
     public class Biglietteria()
     {
-        public Biglietto CreaBiglietto()
+        public Biglietto CreaBiglietto(int tipo)
         { 
-            return new Biglietto();
+
+            return new Biglietto(tipo);
         }
     }
 
-    public class Biglietto()
-    { 
-        
+    public class Biglietto
+    {
+        string tipoBiglietto;
+        int vagone, posto;
+
+        internal Biglietto(int tipo) 
+        {
+            if (tipo == -1 || tipo == 0) 
+                tipoBiglietto = "SecondaClasse";
+            else if (tipo == 1) 
+                tipoBiglietto = "PrimaClasse";
+        }
     }
 }

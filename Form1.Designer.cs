@@ -28,33 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            NuovoBiglietto = new Button();
+            TipiBiglietti = new ComboBox();
             SuspendLayout();
             // 
-            // button1
+            // NuovoBiglietto
             // 
-            button1.Location = new Point(88, 351);
-            button1.Name = "button1";
-            button1.Size = new Size(127, 29);
-            button1.TabIndex = 0;
-            button1.Text = "Nuovo Biglietto";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            NuovoBiglietto.Location = new Point(25, 386);
+            NuovoBiglietto.Margin = new Padding(3, 2, 3, 2);
+            NuovoBiglietto.Name = "NuovoBiglietto";
+            NuovoBiglietto.Size = new Size(111, 29);
+            NuovoBiglietto.TabIndex = 0;
+            NuovoBiglietto.Text = "Nuovo Biglietto";
+            NuovoBiglietto.UseVisualStyleBackColor = true;
+            NuovoBiglietto.Click += NuovoBiglietto_Click;
+            // 
+            // TipiBiglietti
+            // 
+            TipiBiglietti.FormattingEnabled = true;
+            TipiBiglietti.Items.AddRange(new object[] { "Seconda classe", "Prima classe" });
+            TipiBiglietti.Location = new Point(25, 90);
+            TipiBiglietti.Name = "TipiBiglietti";
+            TipiBiglietti.Size = new Size(121, 23);
+            TipiBiglietti.TabIndex = 1;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(button1);
+            ClientSize = new Size(624, 441);
+            Controls.Add(TipiBiglietti);
+            Controls.Add(NuovoBiglietto);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Biglietteria";
             Load += Form1_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button button1;
+        private Button NuovoBiglietto;
+        private ComboBox TipiBiglietti;
     }
 }
