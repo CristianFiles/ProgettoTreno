@@ -5,6 +5,7 @@ namespace ProgettoTreno
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
+        
         [STAThread]
         static void Main()
         {
@@ -12,7 +13,7 @@ namespace ProgettoTreno
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
-            Biglietteria uno = new Biglietteria();
+            
         }
     }
 }

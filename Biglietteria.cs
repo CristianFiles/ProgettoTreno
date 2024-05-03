@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgettoTreno
 {
-    internal class Biglietteria()
+    public class Biglietteria()
     {
         public Biglietto CreaBiglietto()
         { 
@@ -14,7 +14,7 @@ namespace ProgettoTreno
         }
     }
 
-    internal class Biglietto()
+    public class Biglietto()
     { 
         
     }
