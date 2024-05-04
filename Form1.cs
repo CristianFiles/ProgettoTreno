@@ -29,15 +29,17 @@ namespace ProgettoTreno
         {
             foreach(Biglietto.Tipi tipo in Enum.GetValues(typeof(Biglietto.Tipi)))
                 TipiBiglietti.Items.Add(tipo);
+            foreach (Biglietto.Destinazione destinazione in Enum.GetValues(typeof(Biglietto.Destinazione)))
+                dest.Items.Add(destinazione);
         }
 
         private void NuovoBiglietto_Click(object sender, EventArgs e)
         {
             DateTime dataora = DateTime.Now;
-            if (biglietto == null && TipiBiglietti.SelectedItem != null)
+            if (biglietto == null && TipiBiglietti.SelectedItem != null && dest.SelectedItem!=null)
             {
-                biglietto = biglietteria.CreaBiglietto((Biglietto.Tipi)TipiBiglietti.SelectedItem, Treno);
-                MessageBox.Show("Tipo biglietto: " + biglietto.tipoBiglietto + "\nData e ora: " + dataora.ToString("dd/MM/yyyy HH:mm") + "\nNumero vagone: " + (biglietto.vagone + 1) + "\nNumero posto: " + (biglietto.posto + 1)+"\ndestinazione: "+destinazione.SelectedItem);
+                biglietto = biglietteria.CreaBiglietto((Biglietto.Tipi)TipiBiglietti.SelectedItem, (Biglietto.Destinazione)dest.SelectedItem,Treno);
+                MessageBox.Show("Tipo biglietto: " + biglietto.tipoBiglietto + "\nData e ora: " + dataora.ToString("dd/MM/yyyy HH:mm") + "\nNumero vagone: " + (biglietto.vagone + 1) + "\nNumero posto: " + (biglietto.posto + 1)+"\ndestinazione: "+biglietto.destinazione);
                 
             }
             else if (TipiBiglietti.SelectedItem == null)

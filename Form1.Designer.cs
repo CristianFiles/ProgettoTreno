@@ -32,7 +32,7 @@
             TipiBiglietti = new ComboBox();
             label1 = new Label();
             label2 = new Label();
-            destinazione = new ComboBox();
+            dest = new ComboBox();
             SuspendLayout();
             // 
             // NuovoBiglietto
@@ -73,22 +73,21 @@
             label2.TabIndex = 3;
             label2.Text = "scegli destinazione";
             // 
-            // destinazione
+            // dest
             // 
-            destinazione.DropDownStyle = ComboBoxStyle.DropDownList;
-            destinazione.FormattingEnabled = true;
-            destinazione.Items.AddRange(new object[] { "Abruzzo", "Basilicata", "Calabria", "Campania", "Emilia Romagna", "Friuli Venezia Giulia", "Lazio ", "Liguria", "Lombardia", "Marche", "Molise", "Piemonte", "Puglia", "Sardegna ", "Sicilia ", "Toscana", "Trentino Alto Adige", "Umbria", "Val D'aosta", "Veneto" });
-            destinazione.Location = new Point(28, 150);
-            destinazione.Name = "destinazione";
-            destinazione.Size = new Size(121, 23);
-            destinazione.TabIndex = 4;
+            dest.DropDownStyle = ComboBoxStyle.DropDownList;
+            dest.FormattingEnabled = true;
+            dest.Location = new Point(28, 150);
+            dest.Name = "dest";
+            dest.Size = new Size(121, 23);
+            dest.TabIndex = 4;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(624, 441);
-            Controls.Add(destinazione);
+            Controls.Add(dest);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(TipiBiglietti);
@@ -107,6 +106,6 @@
         private ComboBox TipiBiglietti;
         private Label label1;
         private Label label2;
-        private ComboBox destinazione;
+        private ComboBox dest;
     }
 }
