@@ -22,10 +22,12 @@ namespace ProgettoTreno
 
         internal Biglietto(int tipo) 
         {
-            if (tipo == -1 || tipo == 0) 
+            if (tipo == -1 || tipo == 0)
                 tipoBiglietto = "SecondaClasse";
-            else if (tipo == 1) 
+            else if (tipo == 1)
                 tipoBiglietto = "PrimaClasse";
+            else if (tipo == 2)
+                tipoBiglietto = "FullOptional";
         }
     }
 }

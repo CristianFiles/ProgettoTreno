@@ -22,6 +22,7 @@ namespace ProgettoTreno
             else 
             {
                 MessageBox.Show("Hai già acquistato un biglietto!");
+
             }
         }
         

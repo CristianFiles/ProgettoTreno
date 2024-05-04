@@ -34,10 +34,9 @@
             // 
             // NuovoBiglietto
             // 
-            NuovoBiglietto.Location = new Point(25, 386);
-            NuovoBiglietto.Margin = new Padding(3, 2, 3, 2);
+            NuovoBiglietto.Location = new Point(29, 515);
             NuovoBiglietto.Name = "NuovoBiglietto";
-            NuovoBiglietto.Size = new Size(111, 29);
+            NuovoBiglietto.Size = new Size(127, 39);
             NuovoBiglietto.TabIndex = 0;
             NuovoBiglietto.Text = "Nuovo Biglietto";
             NuovoBiglietto.UseVisualStyleBackColor = true;
@@ -47,19 +46,19 @@
             // 
             TipiBiglietti.FormattingEnabled = true;
             TipiBiglietti.Items.AddRange(new object[] { "Seconda classe", "Prima classe" });
-            TipiBiglietti.Location = new Point(25, 90);
+            TipiBiglietti.Location = new Point(29, 370);
+            TipiBiglietti.Margin = new Padding(3, 4, 3, 4);
             TipiBiglietti.Name = "TipiBiglietti";
-            TipiBiglietti.Size = new Size(121, 23);
+            TipiBiglietti.Size = new Size(138, 28);
             TipiBiglietti.TabIndex = 1;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(624, 441);
+            ClientSize = new Size(713, 588);
             Controls.Add(TipiBiglietti);
             Controls.Add(NuovoBiglietto);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Biglietteria";
             Load += Form1_Load;
