@@ -6,10 +6,26 @@ using System.Threading.Tasks;
 
 namespace ProgettoTreno
 {
-    internal abstract class Vagone(int posti)
+    public abstract class Vagone(int posti)
     {
-        private readonly int posti = posti;
+        internal readonly int posti = posti;
         internal int passeggeri = 0;
+        internal int[] numeroposto = new int[posti];
+        private int postIndex = 0;
+        bool vagonePieno = false;
+        public int PrimoLibero 
+        {
+            set
+            {
+                postIndex = value;
+                if (postIndex == posti)
+                {
+                    passeggeri = posti;
+                }
+            }
+            get => postIndex;
+        }
+        public abstract string TipoVagone();
 
         public int Disponibili
         {
@@ -67,15 +83,28 @@ namespace ProgettoTreno
     {
         public override bool AccessoWIFI => true;
         public override bool Caricatori => true;
+
+        public override string TipoVagone()
+        {
+            return "PrimaClasse";
+        }
     }
 
     internal class SecondaClasse(int posti) : Vagone(posti)
     {
         public override bool AccessoWIFI => true;
+        public override string TipoVagone()
+        {
+            return "SecondaClasse";
+        }
     }
 
     internal class Fumatori(int posti) : Vagone(posti)
     {
+        public override string TipoVagone()
+        {
+            return "Fumatori";
+        }
     }
 
     internal class Ristorante(int posti) : Vagone(posti)
@@ -98,6 +127,11 @@ namespace ProgettoTreno
         public override bool ClusterScendi(int scesi)
         {
             return false;
+        }
+
+        public override string TipoVagone()
+        {
+            return "Ristorante";
         }
     }
     internal class Cuccette(int posti) : Vagone(posti)
@@ -123,6 +157,10 @@ namespace ProgettoTreno
         {
             return false;
         }
+        public override string TipoVagone()
+        {
+            return "Cuccette";
+        }
     }
 
 
@@ -147,5 +185,13 @@ namespace ProgettoTreno
         {
             return false;
         }
+
+        public override string TipoVagone()
+        {
+            return "Silenzio";
+        }
+
     }
+
+    
 }

@@ -30,6 +30,7 @@
         {
             NuovoBiglietto = new Button();
             TipiBiglietti = new ComboBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // NuovoBiglietto
@@ -44,30 +45,43 @@
             // 
             // TipiBiglietti
             // 
+            TipiBiglietti.DropDownStyle = ComboBoxStyle.DropDownList;
             TipiBiglietti.FormattingEnabled = true;
-            TipiBiglietti.Items.AddRange(new object[] { "Seconda classe", "Prima classe" });
+            TipiBiglietti.Items.AddRange(new object[] { "Seconda classe", "Prima classe", "Full Optional" });
             TipiBiglietti.Location = new Point(29, 370);
             TipiBiglietti.Margin = new Padding(3, 4, 3, 4);
             TipiBiglietti.Name = "TipiBiglietti";
             TipiBiglietti.Size = new Size(138, 28);
             TipiBiglietti.TabIndex = 1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(28, 338);
+            label1.Name = "label1";
+            label1.Size = new Size(170, 20);
+            label1.TabIndex = 2;
+            label1.Text = "Scegli il tipo di biglietto";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(713, 588);
+            Controls.Add(label1);
             Controls.Add(TipiBiglietti);
             Controls.Add(NuovoBiglietto);
             Name = "Form1";
             Text = "Biglietteria";
             Load += Form1_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button NuovoBiglietto;
         private ComboBox TipiBiglietti;
+        private Label label1;
     }
 }
