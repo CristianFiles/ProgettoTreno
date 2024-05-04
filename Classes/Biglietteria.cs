@@ -15,6 +15,7 @@ namespace ProgettoTreno
     {
         public string tipoBiglietto;
         public int vagone, posto;
+        public string destinazione;
 
         internal Biglietto(Tipi tipo, List<Vagone> Treno) 
         {
@@ -22,6 +23,7 @@ namespace ProgettoTreno
             vagone = Treno.FindIndex(v => v.TipoVagone() == tipoBiglietto && v.Disponibili > 0);
             posto = Treno[vagone].PrimoLibero;
             Treno[vagone].PrimoLibero++;
+            
         }
         public enum Tipi
         {
