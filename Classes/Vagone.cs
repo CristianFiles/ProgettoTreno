@@ -159,7 +159,7 @@ namespace ProgettoTreno
         }
         public override string TipoVagone()
         {
-            return "Cuccette";
+            return "FullOptional";
         }
     }
 

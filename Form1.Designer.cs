@@ -47,7 +47,6 @@
             // 
             TipiBiglietti.DropDownStyle = ComboBoxStyle.DropDownList;
             TipiBiglietti.FormattingEnabled = true;
-            TipiBiglietti.Items.AddRange(new object[] { "Seconda classe", "Prima classe", "Full Optional" });
             TipiBiglietti.Location = new Point(29, 370);
             TipiBiglietti.Margin = new Padding(3, 4, 3, 4);
             TipiBiglietti.Name = "TipiBiglietti";
