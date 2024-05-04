@@ -38,6 +38,7 @@ namespace ProgettoTreno
             {
                 biglietto = biglietteria.CreaBiglietto((Biglietto.Tipi)TipiBiglietti.SelectedItem, Treno);
                 MessageBox.Show("Tipo biglietto: " + biglietto.tipoBiglietto + "\nData e ora: " + dataora.ToString("dd/MM/yyyy HH:mm") + "\nNumero vagone: " + (biglietto.vagone + 1) + "\nNumero posto: " + (biglietto.posto + 1));
+                
             }
             else if (TipiBiglietti.SelectedItem == null)
                 MessageBox.Show("Seleziona un tipo di biglietto!");
