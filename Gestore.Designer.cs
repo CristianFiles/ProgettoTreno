@@ -28,18 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
+            MostraBigl = new Button();
+            CreaBigl = new Button();
             SuspendLayout();
+            // 
+            // MostraBigl
+            // 
+            MostraBigl.Location = new Point(36, 93);
+            MostraBigl.Name = "MostraBigl";
+            MostraBigl.Size = new Size(145, 29);
+            MostraBigl.TabIndex = 0;
+            MostraBigl.Text = "Mostra Biglietto";
+            MostraBigl.UseVisualStyleBackColor = true;
+            MostraBigl.Click += MostraBigl_Click;
+            // 
+            // CreaBigl
+            // 
+            CreaBigl.Location = new Point(36, 36);
+            CreaBigl.Name = "CreaBigl";
+            CreaBigl.Size = new Size(145, 29);
+            CreaBigl.TabIndex = 0;
+            CreaBigl.Text = "Crea Biglietto";
+            CreaBigl.Click += CreaBigl_Click;
             // 
             // Gestore
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
+            Controls.Add(CreaBigl);
+            Controls.Add(MostraBigl);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Gestore";
             Text = "Gestore";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button MostraBigl;
+        private Button CreaBigl;
     }
 }

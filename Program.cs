@@ -9,12 +9,13 @@ namespace ProgettoTreno
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+           
+        // To customize application configuration such as set high DPI settings or default font,
+        // see https://aka.ms/applicationconfiguration.
+        ApplicationConfiguration.Initialize();
             Form1 form1 = new Form1();
             Gestore gestore = new Gestore();
-            form1.Show();
+            //form1.Show();
             gestore.Show();
             Application.Run();
             

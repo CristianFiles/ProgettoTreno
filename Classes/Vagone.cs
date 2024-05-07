@@ -45,6 +45,8 @@ namespace ProgettoTreno
         public virtual bool Scendi() 
         {
             passeggeri--;
+            if(passeggeri < 0)
+                passeggeri = 0;
             return true;
         }
         public virtual bool Sali() 
@@ -61,11 +63,18 @@ namespace ProgettoTreno
         public virtual Tuple<bool, int> ClusterSali(int saliti) 
         {
             int avanzati = passeggeri + saliti - posti;
-            passeggeri = posti;
+
             if (avanzati > 0)
-                return new Tuple <bool, int> (false,avanzati);
+            {
+                vagonePieno = true;
+                PrimoLibero = posti + 1;
+                return new Tuple<bool, int>(false, avanzati);
+            }
             else
-                return new Tuple<bool, int> (true, 0);
+            {
+                PrimoLibero += saliti;
+                return new Tuple<bool, int>(true, 0);
+            }
         }
 
         //Metodo per far scendere più persone in una volta
@@ -159,7 +168,7 @@ namespace ProgettoTreno
         }
         public override string TipoVagone()
         {
-            return "FullOptional";
+            return "Cuccette";
         }
     }
 
