@@ -42,7 +42,7 @@ namespace ProgettoTreno
 
         public override string ToString()
         {
-            return "Tipo biglietto: " + this.tipoBiglietto + "\nData e ora: " + dataCreazione.ToString("dd/MM/yyyy HH:mm") + "\nNumero vagone: " + (this.vagone + 1) + "\nNumero posto: " + (this.posto + 1) + "\ndestinazione: " + this.destinazione;
+            return "Tipo biglietto: " + this.tipoBiglietto + "\nData e ora: " + dataCreazione.ToString("dd/MM/yyyy HH:mm") + "\nNumero vagone: " + (this.vagone + 1) + "\nNumero posto: " + (this.posto + 1) + "\ndestinazione: " + this.destinazione+"\nnome e cognome: "+this.nomeCognome;
         }
         public enum Tipi
         {

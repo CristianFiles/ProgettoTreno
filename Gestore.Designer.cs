@@ -30,6 +30,10 @@
         {
             MostraBigl = new Button();
             CreaBigl = new Button();
+            ViewVagoni = new DataGridView();
+            Vagoni = new DataGridViewButtonColumn();
+            Passeggeri = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)ViewVagoni).BeginInit();
             SuspendLayout();
             // 
             // MostraBigl
@@ -51,16 +55,43 @@
             CreaBigl.Text = "Crea Biglietto";
             CreaBigl.Click += CreaBigl_Click;
             // 
+            // ViewVagoni
+            // 
+            ViewVagoni.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ViewVagoni.Columns.AddRange(new DataGridViewColumn[] { Vagoni, Passeggeri });
+            ViewVagoni.Location = new Point(45, 342);
+            ViewVagoni.Name = "ViewVagoni";
+            ViewVagoni.RowHeadersWidth = 51;
+            ViewVagoni.Size = new Size(300, 188);
+            ViewVagoni.TabIndex = 2;
+            // 
+            // Vagoni
+            // 
+            Vagoni.HeaderText = "Vagoni";
+            Vagoni.MinimumWidth = 6;
+            Vagoni.Name = "Vagoni";
+            Vagoni.Width = 125;
+            // 
+            // Passeggeri
+            // 
+            Passeggeri.HeaderText = "Passeggeri";
+            Passeggeri.MinimumWidth = 6;
+            Passeggeri.Name = "Passeggeri";
+            Passeggeri.Width = 125;
+            // 
             // Gestore
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 600);
+            Controls.Add(ViewVagoni);
             Controls.Add(CreaBigl);
             Controls.Add(MostraBigl);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Gestore";
             Text = "Gestore";
+            Load += Gestore_Load;
+            ((System.ComponentModel.ISupportInitialize)ViewVagoni).EndInit();
             ResumeLayout(false);
         }
 
@@ -68,5 +99,8 @@
 
         private Button MostraBigl;
         private Button CreaBigl;
+        private DataGridView ViewVagoni;
+        private DataGridViewButtonColumn Vagoni;
+        private DataGridViewTextBoxColumn Passeggeri;
     }
 }

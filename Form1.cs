@@ -10,17 +10,6 @@ namespace ProgettoTreno
             InitializeComponent();
             InitTipiBiglietti();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            Treno.Add(new PrimaClasse(24));
-            Treno.Add(new SecondaClasse(32));
-            Treno.Add(new SecondaClasse(32));
-            Treno.Add(new Ristorante(20));
-            Treno.Add(new Cuccette(16));
-            Treno.Add(new Silenzio(20));
-            Treno.Add(new Fumatori(10));
-        }
         private void InitTipiBiglietti() //Cosi da utilizzare i valori dell'enum per il tipo dei biglietti
         {
             foreach (Biglietto.Tipi tipo in Enum.GetValues(typeof(Biglietto.Tipi)))
