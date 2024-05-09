@@ -22,6 +22,20 @@ namespace ProgettoTreno
         public Gestore()
         {
             InitializeComponent();
+            Treno.Add(new PrimaClasse(24));
+            Treno.Add(new SecondaClasse(32));
+            Treno.Add(new SecondaClasse(32));
+            Treno.Add(new Ristorante(20));
+            Treno.Add(new Cuccette(16));
+            Treno.Add(new Silenzio(20));
+            Treno.Add(new Fumatori(10));
+            PopulateDataGridView();
+        }
+        private void PopulateDataGridView() => Treno.ForEach(v => ViewVagoni.Rows.Add(new string[] { v.TipoVagone(), v.passeggeri.ToString() }));
+
+        private void Gestore_Load(object sender, EventArgs e)
+        {
+            
         }
 
         private void MostraBigl_Click(object sender, EventArgs e)
@@ -34,9 +48,9 @@ namespace ProgettoTreno
 
         private void CreaBigl_Click(object sender, EventArgs e)
         {
-            if(creatore == null || creatore.IsDisposed)
+            if (creatore == null || creatore.IsDisposed)
                 creatore = new Form1();
             creatore.Show();
-        }
+        } 
     }
 }
