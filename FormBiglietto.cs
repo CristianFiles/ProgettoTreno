@@ -12,9 +12,9 @@ namespace ProgettoTreno
         }
         private void InitTipiBiglietti()
         {
-            foreach (Biglietto.Tipi tipo in Enum.GetValues(typeof(Biglietto.Tipi)))
+            foreach (string tipo in Biglietto.Tipi.Values)
                 TipiBiglietti.Items.Add(tipo);
-            foreach (Biglietto.Destinazione destinazione in Enum.GetValues(typeof(Biglietto.Destinazione)))
+            foreach (string destinazione in Biglietto.Destinazione.Values)
                 dest.Items.Add(destinazione);
         }
 
@@ -22,7 +22,7 @@ namespace ProgettoTreno
         {
             if (biglietto == null && TipiBiglietti.SelectedItem != null && dest.SelectedItem != null)
             {
-                biglietto = biglietteria.CreaBiglietto((Biglietto.Tipi)TipiBiglietti.SelectedItem, (Biglietto.Destinazione)dest.SelectedItem, Treno, passeggero.Text);
+                biglietto = biglietteria.CreaBiglietto(TipiBiglietti.SelectedItem.ToString(), dest.SelectedItem.ToString(), Treno, passeggero.Text);
                 MessageBox.Show(biglietto.ToString());
             }
             else if (TipiBiglietti.SelectedItem == null)
@@ -34,6 +34,11 @@ namespace ProgettoTreno
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Program.gestore.PopulateDataGridView();
+        }
+
+        private void FormBiglietto_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

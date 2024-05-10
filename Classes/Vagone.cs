@@ -11,30 +11,16 @@ namespace ProgettoTreno
     {
         internal readonly int posti = posti;
         internal int passeggeri = 0;
-  
-        private int postIndex = 0;
+        public int PrimoLibero { get; set;} = 0;
         bool vagonePieno = false;
-
-        public virtual string[] bigliettiAccessibili 
-        {
-            get
-            {
-                return ["SecondaClasse", "PrimaClasse", "FullOptional"];
-            }
-        }
-        public int PrimoLibero 
-        {
-            set => postIndex = value;
-            get => postIndex;
-        }
-        public abstract string TipoVagone();
-
         public int Disponibili => posti - passeggeri;
-
         public virtual bool AccessoWIFI => false;
-
         public virtual bool Caricatori => false;
 
+        public abstract TipiVagone TipoVagone();
+
+        public virtual string[] bigliettiAccessibili => [Biglietto.Tipi.SecondaClasse, Biglietto.Tipi.PrimaClasse, Biglietto.Tipi.FullOptional];
+        
         public virtual bool Scendi() 
         {
             passeggeri--;
@@ -111,60 +97,60 @@ namespace ProgettoTreno
 
     public class PrimaClasse(int posti) : Vagone(posti)
     {
-        public override string TipoVagone() => "PrimaClasse";
+        public override TipiVagone TipoVagone() => TipiVagone.PrimaClasse;
         public override bool AccessoWIFI => true;
         public override bool Caricatori => true;
-        public override string[] bigliettiAccessibili => ["PrimaClasse"];
+        public override string[] bigliettiAccessibili => [Biglietto.Tipi.PrimaClasse];
     }
 
     internal class SecondaClasse(int posti) : Vagone(posti)
     {
-        public override string TipoVagone() => "SecondaClasse";
+        public override TipiVagone TipoVagone() => TipiVagone.SecondaClasse;
         public override bool Caricatori => true;
-        public override string[] bigliettiAccessibili => ["SecondaClasse"];
+        public override string[] bigliettiAccessibili => [Biglietto.Tipi.SecondaClasse];
     }
 
     internal class Fumatori(int posti) : Vagone(posti)
     {
-        public override string TipoVagone() => "Fumatori";
+        public override TipiVagone TipoVagone() => TipiVagone.Fumatori;
         public override int ClusterSali(int saliti) => saliti;
         public override bool ClusterScendi(int scesi) => false;
     }
 
     internal class Ristorante(int posti) : Vagone(posti)
     {
-        public override string TipoVagone() => "Ristorante";
+        public override TipiVagone TipoVagone() => TipiVagone.Ristorante;
         public override bool Sali() => false;
         public override bool Scendi() => false;
         public override int ClusterSali(int saliti) => saliti;
         public override bool ClusterScendi(int scesi) => false;
-        public override string[] bigliettiAccessibili => ["PrimaClasse", "FullOptional"];
+        public override string[] bigliettiAccessibili => [Biglietto.Tipi.PrimaClasse, Biglietto.Tipi.FullOptional];
     }
 
     internal class Cuccette(int posti) : Vagone(posti)
     {
-        public override string TipoVagone() => "Cuccette";
+        public override TipiVagone TipoVagone() => TipiVagone.Cuccette;
         public override bool AccessoWIFI => true;
         public override bool Caricatori => true;
         public override bool Sali() => false;
         public override bool Scendi() => false;
         public override int ClusterSali(int saliti) => saliti;
         public override bool ClusterScendi(int scesi) => false;
-        public override string[] bigliettiAccessibili => ["FullOptional"];
+        public override string[] bigliettiAccessibili => [Biglietto.Tipi.FullOptional];
     }
 
     internal class Silenzio(int posti) : Vagone(posti)
     {
-        public override string TipoVagone() => "Silenzio";
+        public override TipiVagone TipoVagone() => TipiVagone.Silenzio;
         public override bool AccessoWIFI => true;
         public override bool Sali() => false;
         public override bool Scendi() => false;
         public override int ClusterSali(int saliti) => saliti;
         public override bool ClusterScendi(int scesi) => false;
-        public override string[] bigliettiAccessibili => ["PrimaClasse", "FullOptional"];
+        public override string[] bigliettiAccessibili => [Biglietto.Tipi.PrimaClasse, Biglietto.Tipi.FullOptional];
     }
 
-    public enum TipoVagone
+    public enum TipiVagone
     { 
         PrimaClasse,
         SecondaClasse,

@@ -38,7 +38,7 @@ namespace ProgettoTreno
         public void PopulateDataGridView()
         {
             ViewVagoni.Rows.Clear();
-            Treno.ForEach(v => ViewVagoni.Rows.Add(new string[] { v.TipoVagone(), v.passeggeri.ToString() }));
+            Treno.ForEach(v => ViewVagoni.Rows.Add(new string[] { v.TipoVagone().ToString(), v.passeggeri.ToString() }));
         }
 
 
@@ -47,9 +47,9 @@ namespace ProgettoTreno
             InitListaVagoni(ListaDropVagoni);
             InitListaVagoni(ListaVagoniRim);
             tipiVagone.Items.Clear();
-            foreach (TipoVagone tipo in Enum.GetValues(typeof(TipoVagone)))
+            foreach (TipiVagone tipo in Enum.GetValues(typeof(TipiVagone)))
                 tipiVagone.Items.Add(tipo);
-            
+
             PopulateDataGridView();
         }
 
@@ -137,7 +137,7 @@ namespace ProgettoTreno
             if (ListaVagoniRim.SelectedIndex != -1)
             {
                 Treno.RemoveAt(ListaVagoniRim.SelectedIndex);
-                Gestore_Load(null, null);
+                Gestore_Load(sender, e);
             }
             else MessageBox.Show("Vagone non selezionato!");
         }
@@ -155,7 +155,7 @@ namespace ProgettoTreno
                 _ => new SecondaClasse(12),
             };
             Treno.Insert((int)indexVagone.Value, vagone);
-            Gestore_Load(null, null);
+            Gestore_Load(sender, e);
         }
     }
 

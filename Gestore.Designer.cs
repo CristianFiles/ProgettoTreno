@@ -258,7 +258,6 @@
         private Button CreaBigl;
 
         private Button bottoneSali;
-        private NumericUpDown numericUpDown1;
         private NumericUpDown contPasseggeri;
 
         private DataGridView ViewVagoni;

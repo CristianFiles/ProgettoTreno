@@ -39,9 +39,10 @@
             // 
             // NuovoBiglietto
             // 
-            NuovoBiglietto.Location = new Point(26, 297);
+            NuovoBiglietto.Location = new Point(23, 223);
+            NuovoBiglietto.Margin = new Padding(3, 2, 3, 2);
             NuovoBiglietto.Name = "NuovoBiglietto";
-            NuovoBiglietto.Size = new Size(127, 39);
+            NuovoBiglietto.Size = new Size(111, 29);
             NuovoBiglietto.TabIndex = 0;
             NuovoBiglietto.Text = "Nuovo Biglietto";
             NuovoBiglietto.UseVisualStyleBackColor = true;
@@ -51,27 +52,26 @@
             // 
             TipiBiglietti.DropDownStyle = ComboBoxStyle.DropDownList;
             TipiBiglietti.FormattingEnabled = true;
-            TipiBiglietti.Location = new Point(26, 52);
-            TipiBiglietti.Margin = new Padding(3, 4, 3, 4);
+            TipiBiglietti.Location = new Point(23, 39);
             TipiBiglietti.Name = "TipiBiglietti";
-            TipiBiglietti.Size = new Size(138, 28);
+            TipiBiglietti.Size = new Size(121, 23);
             TipiBiglietti.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(26, 28);
+            label1.Location = new Point(23, 21);
             label1.Name = "label1";
-            label1.Size = new Size(170, 20);
+            label1.Size = new Size(131, 15);
             label1.TabIndex = 2;
             label1.Text = "Scegli il tipo di biglietto";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(27, 105);
+            label2.Location = new Point(24, 79);
             label2.Name = "label2";
-            label2.Size = new Size(137, 20);
+            label2.Size = new Size(107, 15);
             label2.TabIndex = 3;
             label2.Text = "Scegli destinazione";
             // 
@@ -79,33 +79,33 @@
             // 
             dest.DropDownStyle = ComboBoxStyle.DropDownList;
             dest.FormattingEnabled = true;
-            dest.Location = new Point(29, 133);
-            dest.Margin = new Padding(3, 4, 3, 4);
+            dest.Location = new Point(25, 100);
             dest.Name = "dest";
-            dest.Size = new Size(138, 28);
+            dest.Size = new Size(121, 23);
             dest.TabIndex = 4;
             // 
             // passeggero
             // 
-            passeggero.Location = new Point(29, 214);
+            passeggero.Location = new Point(25, 160);
+            passeggero.Margin = new Padding(3, 2, 3, 2);
             passeggero.Name = "passeggero";
-            passeggero.Size = new Size(138, 27);
+            passeggero.Size = new Size(121, 23);
             passeggero.TabIndex = 5;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(29, 176);
+            label3.Location = new Point(25, 132);
             label3.Name = "label3";
-            label3.Size = new Size(129, 20);
+            label3.Size = new Size(103, 15);
             label3.TabIndex = 6;
             label3.Text = "Nome e cognome";
             // 
-            // Form1
+            // FormBiglietto
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(238, 375);
+            ClientSize = new Size(208, 281);
             Controls.Add(label3);
             Controls.Add(passeggero);
             Controls.Add(dest);
@@ -113,9 +113,11 @@
             Controls.Add(label1);
             Controls.Add(TipiBiglietti);
             Controls.Add(NuovoBiglietto);
-            Name = "Form1";
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "FormBiglietto";
             Text = "Biglietteria";
             FormClosing += Form1_FormClosing;
+            Load += FormBiglietto_Load;
             ResumeLayout(false);
             PerformLayout();
         }
