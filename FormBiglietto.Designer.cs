@@ -1,6 +1,6 @@
 ﻿namespace ProgettoTreno
 {
-    partial class Form1
+    partial class FormBiglietto
     {
         /// <summary>
         ///  Required designer variable.

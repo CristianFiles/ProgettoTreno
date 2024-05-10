@@ -3,9 +3,9 @@ using System;
 using static ProgettoTreno.Gestore;
 namespace ProgettoTreno
 {
-    public partial class Form1 : Form
+    public partial class FormBiglietto : Form
     {
-        public Form1()
+        public FormBiglietto()
         {
             InitializeComponent();
             InitTipiBiglietti();

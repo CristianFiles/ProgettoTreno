@@ -18,9 +18,11 @@ namespace ProgettoTreno
 
         public static List<Vagone> Treno = new List<Vagone>();
 
-        Form1? creatore;
+        FormBiglietto? creatoreBiglietto;
 
         Vagone? vagoneSelezionato;
+
+        public Vagone? vagoneCorrente;
 
         public Gestore()
         {
@@ -32,7 +34,6 @@ namespace ProgettoTreno
             Treno.Add(new Cuccette(16));
             Treno.Add(new Silenzio(20));
             Treno.Add(new Fumatori(10));
-            PopulateDataGridView();
         }
         public void PopulateDataGridView()
         {
@@ -43,7 +44,13 @@ namespace ProgettoTreno
 
         private void Gestore_Load(object sender, EventArgs e)
         {
-
+            InitListaVagoni(ListaDropVagoni);
+            InitListaVagoni(ListaVagoniRim);
+            tipiVagone.Items.Clear();
+            foreach (TipoVagone tipo in Enum.GetValues(typeof(TipoVagone)))
+                tipiVagone.Items.Add(tipo);
+            
+            PopulateDataGridView();
         }
 
         private void MostraBigl_Click(object sender, EventArgs e)
@@ -56,15 +63,16 @@ namespace ProgettoTreno
 
         private void CreaBigl_Click(object sender, EventArgs e)
         {
-            if (creatore == null || creatore.IsDisposed)
-                creatore = new Form1();
-            creatore.Show();
+            if (creatoreBiglietto == null || creatoreBiglietto.IsDisposed)
+                creatoreBiglietto = new FormBiglietto();
+            creatoreBiglietto.Show();
         }
-        
+
         private void bottoneSali_Click(object sender, EventArgs e)
         {
             int salenti = (int)contPasseggeri.Value;
-            if (vagoneSelezionato != null) {
+            if (vagoneSelezionato != null)
+            {
                 salenti = vagoneSelezionato.ClusterSali(salenti);
                 if (salenti > 0)
                 {
@@ -85,17 +93,71 @@ namespace ProgettoTreno
 
 
         private void ViewVagoni_CellContentClick(object sender, DataGridViewCellEventArgs e) => vagoneSelezionato = Treno.ElementAt(e.RowIndex);
-   
+
         private void scendiBottone_Click(object sender, EventArgs e)
         {
-            int scendenti=(int)contPasseggeri.Value;
-            if (vagoneSelezionato != null && !vagoneSelezionato.ClusterScendi(scendenti)) 
+            int scendenti = (int)contPasseggeri.Value;
+            if (vagoneSelezionato != null && !vagoneSelezionato.ClusterScendi(scendenti))
             {
                 MessageBox.Show("Non puoi scendere da questo vagone");
             }
             PopulateDataGridView();
         }
+
+        private static void InitListaVagoni(ComboBox box) { box.Items.Clear(); Treno.ForEach(v => { box.Items.Add(v.TipoVagone()); }); }
+
+        private void ElimBiglietto_Click(object sender, EventArgs e) => biglietto = null;
+
+        private void collegaWifi_Click(object sender, EventArgs e)
+        {
+            if (vagoneCorrente == null) MessageBox.Show("Compra prima un biglietto");
+            else
+            {
+                if (vagoneCorrente.AccessoWIFI) MessageBox.Show("È stato possibile collegarsi al WiFi");
+                else MessageBox.Show("Non è stato possibile collegatsi al WiFi.\nTentare su un altro vagone.");
+            }
+        }
+
+        private void SpostaUtente_Click(object sender, EventArgs e)
+        {
+            if (vagoneCorrente == null || biglietto == null) MessageBox.Show("Selezione del vagone o biglietto mancante, riprova!");
+            else
+            {
+                if (Treno[ListaDropVagoni.SelectedIndex].Accessibile(biglietto))
+                {
+                    vagoneCorrente = vagoneCorrente.Sposta(Treno[ListaDropVagoni.SelectedIndex]);
+                }
+                else MessageBox.Show("Questo vagone non è accessibile con il tuo biglietto!");
+            }
+            PopulateDataGridView();
+        }
+
+        private void togliVagone_Click(object sender, EventArgs e)
+        {
+            if (ListaVagoniRim.SelectedIndex != -1)
+            {
+                Treno.RemoveAt(ListaVagoniRim.SelectedIndex);
+                Gestore_Load(null, null);
+            }
+            else MessageBox.Show("Vagone non selezionato!");
+        }
+
+        private void mettiVagone_Click(object sender, EventArgs e)
+        {
+            Vagone vagone = tipiVagone.SelectedIndex switch
+            {
+                0 => new PrimaClasse(12),
+                1 => new SecondaClasse(12),
+                2 => new Cuccette(12),
+                3 => new Silenzio(12),
+                4 => new Ristorante(12),
+                5 => new Fumatori(12),
+                _ => new SecondaClasse(12),
+            };
+            Treno.Insert((int)indexVagone.Value, vagone);
+            Gestore_Load(null, null);
+        }
     }
 
 }
-//TODO: funzione sposta e cluster sposta, un bel tentativo di accesso al WIFI, funzione che permette di rimuovere il biglietto e quindi farne un altro
+//TODO: funzione sposta e cluster sposta, un bel tentativo di accesso al WIFI, aggiunta e rimozione dei vagoni

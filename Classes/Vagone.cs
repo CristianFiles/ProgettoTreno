@@ -11,13 +11,21 @@ namespace ProgettoTreno
     {
         internal readonly int posti = posti;
         internal int passeggeri = 0;
-        internal int[] numeroposto = new int[posti];
+  
         private int postIndex = 0;
         bool vagonePieno = false;
+
+        public virtual string[] bigliettiAccessibili 
+        {
+            get
+            {
+                return ["SecondaClasse", "PrimaClasse", "FullOptional"];
+            }
+        }
         public int PrimoLibero 
         {
             set => postIndex = value;
-            get => postIndex+1;
+            get => postIndex;
         }
         public abstract string TipoVagone();
 
@@ -76,20 +84,44 @@ namespace ProgettoTreno
             }
             return true;
         }
-        
+
+        public virtual bool Accessibile(Biglietto biglietto) 
+        {
+            if(bigliettiAccessibili.Contains(biglietto.tipoBiglietto)) return true;
+            else return false;
+        }
+
+        public Vagone Sposta(Vagone altro) 
+        {
+            if (altro.Disponibili > 0)
+            {
+                altro.passeggeri++;
+                altro.PrimoLibero++;
+                passeggeri--;
+                PrimoLibero--;
+                return altro;
+            }
+            else
+            {
+                MessageBox.Show("Vagone selezionato pieno!");
+                return this;
+            }
+        }
     }
 
     public class PrimaClasse(int posti) : Vagone(posti)
     {
+        public override string TipoVagone() => "PrimaClasse";
         public override bool AccessoWIFI => true;
         public override bool Caricatori => true;
-        public override string TipoVagone() => "PrimaClasse";
+        public override string[] bigliettiAccessibili => ["PrimaClasse"];
     }
 
     internal class SecondaClasse(int posti) : Vagone(posti)
     {
-        public override bool AccessoWIFI => true;
         public override string TipoVagone() => "SecondaClasse";
+        public override bool Caricatori => true;
+        public override string[] bigliettiAccessibili => ["SecondaClasse"];
     }
 
     internal class Fumatori(int posti) : Vagone(posti)
@@ -101,30 +133,44 @@ namespace ProgettoTreno
 
     internal class Ristorante(int posti) : Vagone(posti)
     {
+        public override string TipoVagone() => "Ristorante";
         public override bool Sali() => false;
         public override bool Scendi() => false;
         public override int ClusterSali(int saliti) => saliti;
         public override bool ClusterScendi(int scesi) => false;
-        public override string TipoVagone() => "Ristorante";
+        public override string[] bigliettiAccessibili => ["PrimaClasse", "FullOptional"];
     }
 
     internal class Cuccette(int posti) : Vagone(posti)
     {
+        public override string TipoVagone() => "Cuccette";
         public override bool AccessoWIFI => true;
         public override bool Caricatori => true;
         public override bool Sali() => false;
         public override bool Scendi() => false;
         public override int ClusterSali(int saliti) => saliti;
         public override bool ClusterScendi(int scesi) => false;
-        public override string TipoVagone() => "Cuccette";
+        public override string[] bigliettiAccessibili => ["FullOptional"];
     }
 
     internal class Silenzio(int posti) : Vagone(posti)
     {
+        public override string TipoVagone() => "Silenzio";
+        public override bool AccessoWIFI => true;
         public override bool Sali() => false;
         public override bool Scendi() => false;
         public override int ClusterSali(int saliti) => saliti;
         public override bool ClusterScendi(int scesi) => false;
-        public override string TipoVagone() => "Silenzio";
+        public override string[] bigliettiAccessibili => ["PrimaClasse", "FullOptional"];
+    }
+
+    public enum TipoVagone
+    { 
+        PrimaClasse,
+        SecondaClasse,
+        Cuccette,
+        Silenzio,
+        Ristorante,
+        Fumatori
     }
 }

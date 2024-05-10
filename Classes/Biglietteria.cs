@@ -22,27 +22,31 @@ namespace ProgettoTreno
 
         internal Biglietto(Tipi tipo,Destinazione dest, List<Vagone> Treno, string generalita) 
         {
-            nomeCognome = generalita;
-            dataCreazione = DateTime.Now;
-            tipoBiglietto = tipo.ToString();
             if (tipo == Tipi.FullOptional)
             {
                 vagone = Treno.FindIndex(v => v.TipoVagone() == "Cuccette" && v.Disponibili > 0);
             }
             else
             {
-                vagone = Treno.FindIndex(v => v.TipoVagone() == tipoBiglietto && v.Disponibili > 0);
+                vagone = Treno.FindIndex(v => v.TipoVagone() == tipo.ToString() && v.Disponibili > 0);
             }
-
-            destinazione = Regex.Replace(dest.ToString(), @"([a-z])([A-Z])", "$1 $2");
-            posto = Treno[vagone].PrimoLibero;
-            Treno[vagone].PrimoLibero++;
-            Treno[vagone].passeggeri++;
+            //if (vagone == -1) MessageBox.Show("Non è stato possibile trovare un posto\nper questo tipo di biglietto");
+            //else
+            //{
+                nomeCognome = generalita;
+                dataCreazione = DateTime.Now;
+                tipoBiglietto = tipo.ToString();
+                Program.gestore.vagoneCorrente = Treno[vagone];
+                destinazione = Regex.Replace(dest.ToString(), @"([a-z])([A-Z])", "$1 $2");
+                posto = Treno[vagone].PrimoLibero;
+                Treno[vagone].PrimoLibero++;
+                Treno[vagone].passeggeri++;
+            //}
         }
 
         public override string ToString()
         {
-            return "Tipo biglietto: " + this.tipoBiglietto + "\nData e ora: " + dataCreazione.ToString("dd/MM/yyyy HH:mm") + "\nNumero vagone: " + (this.vagone + 1) + "\nNumero posto: " + (this.posto + 1) + "\ndestinazione: " + this.destinazione+"\nnome e cognome: "+this.nomeCognome;
+            return "Tipo biglietto: " + tipoBiglietto + "\nData e ora: " + dataCreazione.ToString("dd/MM/yyyy HH:mm") + "\nNumero vagone: " + (vagone + 1) + "\nNumero posto: " + (posto+1) + "\ndestinazione: " + destinazione + "\nnome e cognome: " + nomeCognome;
         }
         public enum Tipi
         {
