@@ -51,6 +51,27 @@ namespace ProgettoTreno
             if (creatore == null || creatore.IsDisposed)
                 creatore = new Form1();
             creatore.Show();
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int salenti = (int)saliBtn.Value;
+            if (salenti > 0)
+            {
+                if(Vagone.ClusterSali(salenti) != 0)
+                {
+
+                }
+            }
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
         } 
+
     }
 }

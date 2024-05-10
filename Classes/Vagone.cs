@@ -60,7 +60,7 @@ namespace ProgettoTreno
         }
 
         //Metodo per far salire più persone in una volta, ritorna il numero di passeggeri che non sono riusciti a salire su questo vagone
-        public virtual Tuple<bool, int> ClusterSali(int saliti) 
+        public virtual int ClusterSali(int saliti) 
         {
             int avanzati = passeggeri + saliti - posti;
 
@@ -68,12 +68,12 @@ namespace ProgettoTreno
             {
                 vagonePieno = true;
                 PrimoLibero = posti + 1;
-                return new Tuple<bool, int>(false, avanzati);
+                return avanzati;
             }
             else
             {
                 PrimoLibero += saliti;
-                return new Tuple<bool, int>(true, 0);
+                return 0;
             }
         }
 
@@ -128,9 +128,9 @@ namespace ProgettoTreno
             return false;
         }
 
-        public override Tuple<bool, int> ClusterSali(int saliti)
+        public override int ClusterSali(int saliti)
         {
-            return new Tuple<bool, int> (false, saliti);
+            return saliti;
         }
 
         public override bool ClusterScendi(int scesi)
@@ -157,9 +157,9 @@ namespace ProgettoTreno
             return false;
         }
 
-        public override Tuple<bool, int> ClusterSali(int saliti)
+        public override int ClusterSali(int saliti)
         {
-            return new Tuple<bool, int>(false, saliti);
+            return saliti;
         }
 
         public override bool ClusterScendi(int scesi)
@@ -185,9 +185,9 @@ namespace ProgettoTreno
             return false;
         }
 
-        public override Tuple<bool, int> ClusterSali(int saliti)
+        public override int ClusterSali(int saliti)
         {
-            return new Tuple<bool, int>(false, saliti);
+            return saliti;
         }
 
         public override bool ClusterScendi(int scesi)

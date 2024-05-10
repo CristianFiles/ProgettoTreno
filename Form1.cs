@@ -28,7 +28,7 @@ namespace ProgettoTreno
             else if (TipiBiglietti.SelectedItem == null)
                 MessageBox.Show("Seleziona un tipo di biglietto!");
             else
-                MessageBox.Show("Hai gi‡ aquistato un biglietto!");
+                MessageBox.Show("Hai gi√† aquistato un biglietto!");
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
