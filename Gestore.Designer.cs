@@ -30,16 +30,14 @@
         {
             MostraBigl = new Button();
             CreaBigl = new Button();
-
-            button1 = new Button();
-            saliBtn = new NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)saliBtn).BeginInit();
-
+            bottoneSali = new Button();
+            contPasseggeri = new NumericUpDown();
             ViewVagoni = new DataGridView();
             Vagoni = new DataGridViewButtonColumn();
             Passeggeri = new DataGridViewTextBoxColumn();
+            scendiBottone = new Button();
+            ((System.ComponentModel.ISupportInitialize)contPasseggeri).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ViewVagoni).BeginInit();
-
             SuspendLayout();
             // 
             // MostraBigl
@@ -61,26 +59,24 @@
             CreaBigl.Text = "Crea Biglietto";
             CreaBigl.Click += CreaBigl_Click;
             // 
-
-            // button1
+            // bottoneSali
             // 
-            button1.Location = new Point(326, 46);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 1;
-            button1.Text = "sali";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            bottoneSali.Location = new Point(326, 46);
+            bottoneSali.Name = "bottoneSali";
+            bottoneSali.Size = new Size(94, 29);
+            bottoneSali.TabIndex = 1;
+            bottoneSali.Text = "Sali";
+            bottoneSali.UseVisualStyleBackColor = true;
+            bottoneSali.Click += bottoneSali_Click;
             // 
-            // saliBtn
+            // contPasseggeri
             // 
-            saliBtn.Location = new Point(326, 81);
-            saliBtn.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
-            saliBtn.Name = "saliBtn";
-            saliBtn.Size = new Size(150, 27);
-            saliBtn.TabIndex = 2;
-            saliBtn.ValueChanged += numericUpDown1_ValueChanged;
-
+            contPasseggeri.Location = new Point(326, 81);
+            contPasseggeri.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
+            contPasseggeri.Name = "contPasseggeri";
+            contPasseggeri.Size = new Size(194, 27);
+            contPasseggeri.TabIndex = 2;
+            // 
             // ViewVagoni
             // 
             ViewVagoni.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -90,6 +86,7 @@
             ViewVagoni.RowHeadersWidth = 51;
             ViewVagoni.Size = new Size(300, 188);
             ViewVagoni.TabIndex = 2;
+            ViewVagoni.CellContentClick += ViewVagoni_CellContentClick;
             // 
             // Vagoni
             // 
@@ -104,30 +101,34 @@
             Passeggeri.MinimumWidth = 6;
             Passeggeri.Name = "Passeggeri";
             Passeggeri.Width = 125;
-
+            // 
+            // scendiBottone
+            // 
+            scendiBottone.Location = new Point(426, 46);
+            scendiBottone.Name = "scendiBottone";
+            scendiBottone.Size = new Size(94, 29);
+            scendiBottone.TabIndex = 3;
+            scendiBottone.Text = "Scendi";
+            scendiBottone.UseVisualStyleBackColor = true;
+            scendiBottone.Click += scendiBottone_Click;
             // 
             // Gestore
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 600);
-
-            Controls.Add(saliBtn);
-            Controls.Add(button1);
-
+            Controls.Add(scendiBottone);
+            Controls.Add(contPasseggeri);
+            Controls.Add(bottoneSali);
             Controls.Add(ViewVagoni);
-
             Controls.Add(CreaBigl);
             Controls.Add(MostraBigl);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Gestore";
             Text = "Gestore";
-
-            ((System.ComponentModel.ISupportInitialize)saliBtn).EndInit();
-
             Load += Gestore_Load;
+            ((System.ComponentModel.ISupportInitialize)contPasseggeri).EndInit();
             ((System.ComponentModel.ISupportInitialize)ViewVagoni).EndInit();
-
             ResumeLayout(false);
         }
 
@@ -136,13 +137,13 @@
         private Button MostraBigl;
         private Button CreaBigl;
 
-        private Button button1;
+        private Button bottoneSali;
         private NumericUpDown numericUpDown1;
-        private NumericUpDown saliBtn;
+        private NumericUpDown contPasseggeri;
 
         private DataGridView ViewVagoni;
         private DataGridViewButtonColumn Vagoni;
         private DataGridViewTextBoxColumn Passeggeri;
-
+        private Button scendiBottone;
     }
 }

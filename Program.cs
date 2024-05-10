@@ -5,7 +5,7 @@ namespace ProgettoTreno
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
-        
+        public static Gestore gestore;
         [STAThread]
         static void Main()
         {
@@ -14,7 +14,7 @@ namespace ProgettoTreno
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
             Form1 form1 = new Form1();
-            Gestore gestore = new Gestore();
+            gestore = new Gestore();
             //form1.Show();
             gestore.Show();
             Application.Run();

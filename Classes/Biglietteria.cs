@@ -37,7 +37,7 @@ namespace ProgettoTreno
             destinazione = Regex.Replace(dest.ToString(), @"([a-z])([A-Z])", "$1 $2");
             posto = Treno[vagone].PrimoLibero;
             Treno[vagone].PrimoLibero++;
-            
+            Treno[vagone].passeggeri++;
         }
 
         public override string ToString()

@@ -10,7 +10,7 @@ namespace ProgettoTreno
             InitializeComponent();
             InitTipiBiglietti();
         }
-        private void InitTipiBiglietti() //Cosi da utilizzare i valori dell'enum per il tipo dei biglietti
+        private void InitTipiBiglietti()
         {
             foreach (Biglietto.Tipi tipo in Enum.GetValues(typeof(Biglietto.Tipi)))
                 TipiBiglietti.Items.Add(tipo);
@@ -33,7 +33,7 @@ namespace ProgettoTreno
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            Program.gestore.PopulateDataGridView();
         }
     }
 }
