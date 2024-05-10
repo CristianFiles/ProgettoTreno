@@ -116,7 +116,6 @@
             Name = "Form1";
             Text = "Biglietteria";
             FormClosing += Form1_FormClosing;
-            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -88,7 +88,7 @@ namespace ProgettoTreno
         
     }
 
-    internal class PrimaClasse(int posti) : Vagone(posti)
+    public class PrimaClasse(int posti) : Vagone(posti)
     {
         public override bool AccessoWIFI => true;
         public override bool Caricatori => true;
