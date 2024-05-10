@@ -42,9 +42,10 @@
             // 
             // MostraBigl
             // 
-            MostraBigl.Location = new Point(36, 93);
+            MostraBigl.Location = new Point(32, 70);
+            MostraBigl.Margin = new Padding(3, 2, 3, 2);
             MostraBigl.Name = "MostraBigl";
-            MostraBigl.Size = new Size(145, 29);
+            MostraBigl.Size = new Size(127, 22);
             MostraBigl.TabIndex = 0;
             MostraBigl.Text = "Mostra Biglietto";
             MostraBigl.UseVisualStyleBackColor = true;
@@ -52,18 +53,20 @@
             // 
             // CreaBigl
             // 
-            CreaBigl.Location = new Point(36, 36);
+            CreaBigl.Location = new Point(32, 27);
+            CreaBigl.Margin = new Padding(3, 2, 3, 2);
             CreaBigl.Name = "CreaBigl";
-            CreaBigl.Size = new Size(145, 29);
+            CreaBigl.Size = new Size(127, 22);
             CreaBigl.TabIndex = 0;
             CreaBigl.Text = "Crea Biglietto";
             CreaBigl.Click += CreaBigl_Click;
             // 
             // bottoneSali
             // 
-            bottoneSali.Location = new Point(326, 46);
+            bottoneSali.Location = new Point(285, 34);
+            bottoneSali.Margin = new Padding(3, 2, 3, 2);
             bottoneSali.Name = "bottoneSali";
-            bottoneSali.Size = new Size(94, 29);
+            bottoneSali.Size = new Size(82, 22);
             bottoneSali.TabIndex = 1;
             bottoneSali.Text = "Sali";
             bottoneSali.UseVisualStyleBackColor = true;
@@ -71,20 +74,29 @@
             // 
             // contPasseggeri
             // 
-            contPasseggeri.Location = new Point(326, 81);
+            contPasseggeri.Location = new Point(285, 61);
+            contPasseggeri.Margin = new Padding(3, 2, 3, 2);
             contPasseggeri.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
             contPasseggeri.Name = "contPasseggeri";
-            contPasseggeri.Size = new Size(194, 27);
+            contPasseggeri.Size = new Size(170, 23);
             contPasseggeri.TabIndex = 2;
             // 
             // ViewVagoni
             // 
-            ViewVagoni.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ViewVagoni.AllowUserToAddRows = false;
+            ViewVagoni.AllowUserToDeleteRows = false;
+            ViewVagoni.AllowUserToResizeColumns = false;
+            ViewVagoni.AllowUserToResizeRows = false;
+            ViewVagoni.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             ViewVagoni.Columns.AddRange(new DataGridViewColumn[] { Vagoni, Passeggeri });
-            ViewVagoni.Location = new Point(45, 342);
+            ViewVagoni.Location = new Point(32, 217);
+            ViewVagoni.Margin = new Padding(3, 2, 3, 2);
+            ViewVagoni.MultiSelect = false;
             ViewVagoni.Name = "ViewVagoni";
+            ViewVagoni.ReadOnly = true;
             ViewVagoni.RowHeadersWidth = 51;
-            ViewVagoni.Size = new Size(300, 188);
+            ViewVagoni.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            ViewVagoni.Size = new Size(304, 201);
             ViewVagoni.TabIndex = 2;
             ViewVagoni.CellContentClick += ViewVagoni_CellContentClick;
             // 
@@ -93,6 +105,7 @@
             Vagoni.HeaderText = "Vagoni";
             Vagoni.MinimumWidth = 6;
             Vagoni.Name = "Vagoni";
+            Vagoni.ReadOnly = true;
             Vagoni.Width = 125;
             // 
             // Passeggeri
@@ -100,13 +113,15 @@
             Passeggeri.HeaderText = "Passeggeri";
             Passeggeri.MinimumWidth = 6;
             Passeggeri.Name = "Passeggeri";
+            Passeggeri.ReadOnly = true;
             Passeggeri.Width = 125;
             // 
             // scendiBottone
             // 
-            scendiBottone.Location = new Point(426, 46);
+            scendiBottone.Location = new Point(373, 34);
+            scendiBottone.Margin = new Padding(3, 2, 3, 2);
             scendiBottone.Name = "scendiBottone";
-            scendiBottone.Size = new Size(94, 29);
+            scendiBottone.Size = new Size(82, 22);
             scendiBottone.TabIndex = 3;
             scendiBottone.Text = "Scendi";
             scendiBottone.UseVisualStyleBackColor = true;
@@ -114,16 +129,15 @@
             // 
             // Gestore
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(scendiBottone);
             Controls.Add(contPasseggeri);
             Controls.Add(bottoneSali);
             Controls.Add(ViewVagoni);
             Controls.Add(CreaBigl);
             Controls.Add(MostraBigl);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "Gestore";
             Text = "Gestore";
             Load += Gestore_Load;
