@@ -18,7 +18,7 @@ namespace ProgettoTreno
 
         public static List<Vagone> Treno = new List<Vagone>();
 
-        Form1 creatore;
+        Form1? creatore;
         public Gestore()
         {
             InitializeComponent();
@@ -59,10 +59,7 @@ namespace ProgettoTreno
             int salenti = (int)saliBtn.Value;
             if (salenti > 0)
             {
-                if(Vagone.ClusterSali(salenti) != 0)
-                {
-
-                }
+                
             }
         }
 
@@ -71,7 +68,6 @@ namespace ProgettoTreno
 
         }
 
-        } 
+    } 
 
-    }
 }
