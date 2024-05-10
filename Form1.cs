@@ -14,6 +14,7 @@ namespace ProgettoTreno
         private void Form1_Load(object sender, EventArgs e)
         {
             Treno.Add(new PrimaClasse(24));
+            Treno.Add(new PrimaClasse(24));
             Treno.Add(new SecondaClasse(32));
             Treno.Add(new SecondaClasse(32));
             Treno.Add(new Ristorante(20));
