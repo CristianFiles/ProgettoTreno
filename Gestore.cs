@@ -27,6 +27,7 @@ namespace ProgettoTreno
         public Gestore()
         {
             InitializeComponent();
+            Carica.Visible = false;
             Treno.Add(new PrimaClasse(24));
             Treno.Add(new SecondaClasse(32));
             Treno.Add(new SecondaClasse(32));
@@ -157,7 +158,23 @@ namespace ProgettoTreno
             Treno.Insert((int)indexVagone.Value, vagone);
             Gestore_Load(sender, e);
         }
+
+        async private void PresaBtn_Click(object sender, EventArgs e)
+        {
+            if (vagoneCorrente == null) MessageBox.Show("Compra prima un biglietto");
+            else
+            {
+                if (vagoneCorrente.Caricatori) 
+                {
+                    Carica.Visible = true;
+                    await Task.Delay(1000);
+                    Carica.Visible = false;
+                }
+                else MessageBox.Show("la presa non funziona.\nTentare su un altro vagone.");
+            }
+        }
     }
 
 }
+
 //TODO: funzione sposta e cluster sposta, un bel tentativo di accesso al WIFI, aggiunta e rimozione dei vagoni
