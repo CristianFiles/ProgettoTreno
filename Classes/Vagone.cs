@@ -93,6 +93,28 @@ namespace ProgettoTreno
                 return this;
             }
         }
+
+        public int ClusterSposta(Vagone vagone, int spostati)
+        {
+            if(vagone.Disponibili <= spostati)
+            {
+                spostati -= vagone.Disponibili;
+                passeggeri -= vagone.Disponibili;
+                PrimoLibero -= vagone.Disponibili;
+                vagone.passeggeri = vagone.posti;
+                vagone.PrimoLibero = vagone.posti + 1;
+                vagone.vagonePieno = true;
+            }
+            else
+            {
+                passeggeri -= spostati;
+                PrimoLibero -= spostati;
+                vagone.passeggeri += spostati;
+                vagone.PrimoLibero += spostati;
+                spostati = 0;
+            }
+            return spostati;
+        }
     }
 
     public class PrimaClasse(int posti) : Vagone(posti)

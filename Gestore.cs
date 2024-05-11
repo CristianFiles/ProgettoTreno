@@ -46,10 +46,11 @@ namespace ProgettoTreno
         {
             InitListaVagoni(ListaDropVagoni);
             InitListaVagoni(ListaVagoniRim);
+            InitListaVagoni(ListaVagoniAtt);
             tipiVagone.Items.Clear();
             foreach (TipiVagone tipo in Enum.GetValues(typeof(TipiVagone)))
                 tipiVagone.Items.Add(tipo);
-
+            indexVagone.Maximum = Treno.Count;
             PopulateDataGridView();
         }
 
@@ -106,7 +107,14 @@ namespace ProgettoTreno
 
         private static void InitListaVagoni(ComboBox box) { box.Items.Clear(); Treno.ForEach(v => { box.Items.Add(v.TipoVagone()); }); }
 
-        private void ElimBiglietto_Click(object sender, EventArgs e) => biglietto = null;
+        private void ElimBiglietto_Click(object sender, EventArgs e)
+        {
+            if (biglietto != null)
+            {
+                Treno[biglietto.vagone].PrimoLibero--;
+                biglietto = null;
+            }
+        }
 
         private void collegaWifi_Click(object sender, EventArgs e)
         {
@@ -144,17 +152,25 @@ namespace ProgettoTreno
 
         private void mettiVagone_Click(object sender, EventArgs e)
         {
+            int posti = (int)nPostiCounter.Value;
             Vagone vagone = tipiVagone.SelectedIndex switch
             {
-                0 => new PrimaClasse(12),
-                1 => new SecondaClasse(12),
-                2 => new Cuccette(12),
-                3 => new Silenzio(12),
-                4 => new Ristorante(12),
-                5 => new Fumatori(12),
-                _ => new SecondaClasse(12),
+                0 => new PrimaClasse(posti),
+                1 => new SecondaClasse(posti),
+                2 => new Cuccette(posti),
+                3 => new Silenzio(posti),
+                4 => new Ristorante(posti),
+                5 => new Fumatori(posti),
+                _ => new SecondaClasse(posti),
             };
             Treno.Insert((int)indexVagone.Value, vagone);
+            Gestore_Load(sender, e);
+        }
+
+        private void spostaTanti_Click(object sender, EventArgs e)
+        {
+            if(vagoneSelezionato!= null)
+                MessageBox.Show(vagoneSelezionato.ClusterSposta(Treno[ListaVagoniAtt.SelectedIndex], (int)nSpostati.Value).ToString());
             Gestore_Load(sender, e);
         }
     }
