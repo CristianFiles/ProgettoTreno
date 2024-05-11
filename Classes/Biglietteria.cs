@@ -23,7 +23,7 @@ namespace ProgettoTreno
 
         internal Biglietto(string tipo, string dest, List<Vagone> Treno, string generalita) 
         {
-
+            //Potrebbe esserci un problema se si cerca di creare un biglietto per un vagone già pieno
             vagone = Treno.FindIndex(v => v.bigliettiAccessibili.Contains(tipo.ToString()) && v.bigliettiAccessibili.Count() == 1 && v.Disponibili > 0);
             //if (vagone == -1) MessageBox.Show("Non è stato possibile trovare un posto\nper questo tipo di biglietto");
             //else

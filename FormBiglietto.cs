@@ -22,6 +22,7 @@ namespace ProgettoTreno
         {
             if (biglietto == null && TipiBiglietti.SelectedItem != null && dest.SelectedItem != null)
             {
+                #pragma warning disable CS8604 // Possibile argomento di riferimento Null.
                 biglietto = biglietteria.CreaBiglietto(TipiBiglietti.SelectedItem.ToString(), dest.SelectedItem.ToString(), Treno, passeggero.Text);
                 MessageBox.Show(biglietto.ToString());
             }
@@ -33,12 +34,12 @@ namespace ProgettoTreno
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Program.gestore.PopulateDataGridView();
+            if(!Program.gestore.IsDisposed)
+                Program.gestore.PopulateDataGridView();
         }
 
         private void FormBiglietto_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

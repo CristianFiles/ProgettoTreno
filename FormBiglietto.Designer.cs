@@ -35,11 +35,14 @@
             dest = new ComboBox();
             passeggero = new TextBox();
             label3 = new Label();
+            nBiglietti = new NumericUpDown();
+            label4 = new Label();
+            ((System.ComponentModel.ISupportInitialize)nBiglietti).BeginInit();
             SuspendLayout();
             // 
             // NuovoBiglietto
             // 
-            NuovoBiglietto.Location = new Point(23, 223);
+            NuovoBiglietto.Location = new Point(30, 229);
             NuovoBiglietto.Margin = new Padding(3, 2, 3, 2);
             NuovoBiglietto.Name = "NuovoBiglietto";
             NuovoBiglietto.Size = new Size(111, 29);
@@ -52,15 +55,15 @@
             // 
             TipiBiglietti.DropDownStyle = ComboBoxStyle.DropDownList;
             TipiBiglietti.FormattingEnabled = true;
-            TipiBiglietti.Location = new Point(25, 39);
+            TipiBiglietti.Location = new Point(29, 43);
             TipiBiglietti.Name = "TipiBiglietti";
-            TipiBiglietti.Size = new Size(121, 23);
+            TipiBiglietti.Size = new Size(122, 23);
             TipiBiglietti.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(23, 21);
+            label1.Location = new Point(30, 25);
             label1.Name = "label1";
             label1.Size = new Size(131, 15);
             label1.TabIndex = 2;
@@ -69,7 +72,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(24, 79);
+            label2.Location = new Point(29, 69);
             label2.Name = "label2";
             label2.Size = new Size(107, 15);
             label2.TabIndex = 3;
@@ -79,33 +82,51 @@
             // 
             dest.DropDownStyle = ComboBoxStyle.DropDownList;
             dest.FormattingEnabled = true;
-            dest.Location = new Point(25, 97);
+            dest.Location = new Point(30, 87);
             dest.Name = "dest";
             dest.Size = new Size(121, 23);
             dest.TabIndex = 4;
             // 
             // passeggero
             // 
-            passeggero.Location = new Point(25, 149);
+            passeggero.Location = new Point(29, 130);
             passeggero.Margin = new Padding(3, 2, 3, 2);
             passeggero.Name = "passeggero";
-            passeggero.Size = new Size(121, 23);
+            passeggero.Size = new Size(122, 23);
             passeggero.TabIndex = 5;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(25, 132);
+            label3.Location = new Point(31, 113);
             label3.Name = "label3";
             label3.Size = new Size(103, 15);
             label3.TabIndex = 6;
             label3.Text = "Nome e cognome";
+            // 
+            // nBiglietti
+            // 
+            nBiglietti.Location = new Point(29, 173);
+            nBiglietti.Name = "nBiglietti";
+            nBiglietti.Size = new Size(122, 23);
+            nBiglietti.TabIndex = 7;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(32, 155);
+            label4.Name = "label4";
+            label4.Size = new Size(94, 15);
+            label4.TabIndex = 8;
+            label4.Text = "Numero biglietti";
             // 
             // FormBiglietto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(208, 281);
+            Controls.Add(label4);
+            Controls.Add(nBiglietti);
             Controls.Add(label3);
             Controls.Add(passeggero);
             Controls.Add(dest);
@@ -121,6 +142,7 @@
             Text = "Biglietteria";
             FormClosing += Form1_FormClosing;
             Load += FormBiglietto_Load;
+            ((System.ComponentModel.ISupportInitialize)nBiglietti).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -134,5 +156,7 @@
         private ComboBox dest;
         private TextBox passeggero;
         private Label label3;
+        private NumericUpDown nBiglietti;
+        private Label label4;
     }
 }

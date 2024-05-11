@@ -12,11 +12,11 @@ namespace ProgettoTreno
 {
     public partial class Gestore : Form
     {
-        public static Biglietteria biglietteria = new Biglietteria();
+        public static Biglietteria biglietteria = new();
 
         public static Biglietto? biglietto;
 
-        public static List<Vagone> Treno = new List<Vagone>();
+        public static List<Vagone> Treno = [];
 
         FormBiglietto? creatoreBiglietto;
 
@@ -24,6 +24,7 @@ namespace ProgettoTreno
 
         public Vagone? vagoneCorrente;
 
+        
         public Gestore()
         {
             InitializeComponent();
@@ -173,7 +174,7 @@ namespace ProgettoTreno
             if (vagoneCorrente == null) MessageBox.Show("Compra prima un biglietto");
             else
             {
-                if (vagoneCorrente.Caricatori) 
+                if (vagoneCorrente.Caricatori)
                 {
                     Carica.Visible = true;
                     await Task.Delay(1000);
@@ -182,10 +183,10 @@ namespace ProgettoTreno
                 else MessageBox.Show("Non ci sono prese.\nProvare su un altro vagone.");
             }
         }
-            
+
         private void spostaTanti_Click(object sender, EventArgs e)
         {
-            if(vagoneSelezionato!= null)
+            if (vagoneSelezionato != null)
                 MessageBox.Show(vagoneSelezionato.ClusterSposta(Treno[ListaVagoniAtt.SelectedIndex], (int)nSpostati.Value).ToString());
             Gestore_Load(sender, e);
         }
