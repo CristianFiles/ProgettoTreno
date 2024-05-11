@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Gestore));
             MostraBigl = new Button();
             CreaBigl = new Button();
             bottoneSali = new Button();
@@ -45,6 +46,8 @@
             mettiVagone = new Button();
             indexVagone = new NumericUpDown();
             tipiVagone = new ComboBox();
+            PresaBtn = new Button();
+            Carica = new PictureBox();
             nPostiCounter = new NumericUpDown();
             spostaTanti = new Button();
             ListaVagoniAtt = new ComboBox();
@@ -52,16 +55,16 @@
             ((System.ComponentModel.ISupportInitialize)contPasseggeri).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ViewVagoni).BeginInit();
             ((System.ComponentModel.ISupportInitialize)indexVagone).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Carica).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nPostiCounter).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nSpostati).BeginInit();
             SuspendLayout();
             // 
             // MostraBigl
             // 
-            MostraBigl.Location = new Point(32, 58);
-            MostraBigl.Margin = new Padding(3, 2, 3, 2);
+            MostraBigl.Location = new Point(37, 77);
             MostraBigl.Name = "MostraBigl";
-            MostraBigl.Size = new Size(127, 27);
+            MostraBigl.Size = new Size(145, 36);
             MostraBigl.TabIndex = 0;
             MostraBigl.Text = "Mostra Biglietto";
             MostraBigl.UseVisualStyleBackColor = true;
@@ -69,10 +72,9 @@
             // 
             // CreaBigl
             // 
-            CreaBigl.Location = new Point(32, 27);
-            CreaBigl.Margin = new Padding(3, 2, 3, 2);
+            CreaBigl.Location = new Point(37, 36);
             CreaBigl.Name = "CreaBigl";
-            CreaBigl.Size = new Size(127, 27);
+            CreaBigl.Size = new Size(145, 36);
             CreaBigl.TabIndex = 0;
             CreaBigl.Text = "Crea Biglietto";
             CreaBigl.Click += CreaBigl_Click;
@@ -82,7 +84,7 @@
             bottoneSali.Location = new Point(347, 388);
             bottoneSali.Margin = new Padding(3, 2, 3, 2);
             bottoneSali.Name = "bottoneSali";
-            bottoneSali.Size = new Size(82, 22);
+            bottoneSali.Size = new Size(94, 29);
             bottoneSali.TabIndex = 1;
             bottoneSali.Text = "Fai salire";
             bottoneSali.UseVisualStyleBackColor = true;
@@ -94,7 +96,7 @@
             contPasseggeri.Margin = new Padding(3, 2, 3, 2);
             contPasseggeri.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
             contPasseggeri.Name = "contPasseggeri";
-            contPasseggeri.Size = new Size(170, 23);
+            contPasseggeri.Size = new Size(194, 27);
             contPasseggeri.TabIndex = 2;
             // 
             // ViewVagoni
@@ -138,7 +140,7 @@
             scendiBottone.Location = new Point(436, 388);
             scendiBottone.Margin = new Padding(3, 2, 3, 2);
             scendiBottone.Name = "scendiBottone";
-            scendiBottone.Size = new Size(82, 22);
+            scendiBottone.Size = new Size(94, 29);
             scendiBottone.TabIndex = 3;
             scendiBottone.Text = "Fai scendere";
             scendiBottone.UseVisualStyleBackColor = true;
@@ -146,9 +148,10 @@
             // 
             // ElimBiglietto
             // 
-            ElimBiglietto.Location = new Point(32, 90);
+            ElimBiglietto.Location = new Point(37, 120);
+            ElimBiglietto.Margin = new Padding(3, 4, 3, 4);
             ElimBiglietto.Name = "ElimBiglietto";
-            ElimBiglietto.Size = new Size(127, 27);
+            ElimBiglietto.Size = new Size(145, 36);
             ElimBiglietto.TabIndex = 4;
             ElimBiglietto.Text = "Elimina Biglietto";
             ElimBiglietto.UseVisualStyleBackColor = true;
@@ -156,9 +159,10 @@
             // 
             // SpostaUtente
             // 
-            SpostaUtente.Location = new Point(32, 123);
+            SpostaUtente.Location = new Point(37, 164);
+            SpostaUtente.Margin = new Padding(3, 4, 3, 4);
             SpostaUtente.Name = "SpostaUtente";
-            SpostaUtente.Size = new Size(127, 25);
+            SpostaUtente.Size = new Size(145, 33);
             SpostaUtente.TabIndex = 5;
             SpostaUtente.Text = "Spostati nel vagone";
             SpostaUtente.UseVisualStyleBackColor = true;
@@ -168,16 +172,18 @@
             // 
             ListaDropVagoni.DropDownStyle = ComboBoxStyle.DropDownList;
             ListaDropVagoni.FormattingEnabled = true;
-            ListaDropVagoni.Location = new Point(165, 125);
+            ListaDropVagoni.Location = new Point(189, 167);
+            ListaDropVagoni.Margin = new Padding(3, 4, 3, 4);
             ListaDropVagoni.Name = "ListaDropVagoni";
-            ListaDropVagoni.Size = new Size(121, 23);
+            ListaDropVagoni.Size = new Size(138, 28);
             ListaDropVagoni.TabIndex = 6;
             // 
             // collegaWifi
             // 
-            collegaWifi.Location = new Point(32, 154);
+            collegaWifi.Location = new Point(37, 205);
+            collegaWifi.Margin = new Padding(3, 4, 3, 4);
             collegaWifi.Name = "collegaWifi";
-            collegaWifi.Size = new Size(127, 27);
+            collegaWifi.Size = new Size(145, 36);
             collegaWifi.TabIndex = 7;
             collegaWifi.Text = "Collega WiFi";
             collegaWifi.UseVisualStyleBackColor = true;
@@ -187,7 +193,7 @@
             // 
             togliVagone.Location = new Point(395, 264);
             togliVagone.Name = "togliVagone";
-            togliVagone.Size = new Size(121, 24);
+            togliVagone.Size = new Size(138, 32);
             togliVagone.TabIndex = 8;
             togliVagone.Text = "Rimuovi Vagone";
             togliVagone.UseVisualStyleBackColor = true;
@@ -199,7 +205,7 @@
             ListaVagoniRim.FormattingEnabled = true;
             ListaVagoniRim.Location = new Point(271, 264);
             ListaVagoniRim.Name = "ListaVagoniRim";
-            ListaVagoniRim.Size = new Size(121, 23);
+            ListaVagoniRim.Size = new Size(138, 28);
             ListaVagoniRim.TabIndex = 9;
             // 
             // mettiVagone
@@ -229,6 +235,25 @@
             tipiVagone.Name = "tipiVagone";
             tipiVagone.Size = new Size(121, 23);
             tipiVagone.TabIndex = 12;
+            // 
+            // PresaBtn
+            // 
+            PresaBtn.Location = new Point(40, 252);
+            PresaBtn.Name = "PresaBtn";
+            PresaBtn.Size = new Size(142, 29);
+            PresaBtn.TabIndex = 13;
+            PresaBtn.Text = "attacco presa";
+            PresaBtn.UseVisualStyleBackColor = true;
+            PresaBtn.Click += PresaBtn_Click;
+            // 
+            // Carica
+            // 
+            Carica.Image = (Image)resources.GetObject("Carica.Image");
+            Carica.Location = new Point(37, 332);
+            Carica.Name = "Carica";
+            Carica.Size = new Size(204, 193);
+            Carica.TabIndex = 14;
+            Carica.TabStop = false;
             // 
             // nPostiCounter
             // 
@@ -271,8 +296,10 @@
             // 
             // Gestore
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(Carica);
+            Controls.Add(PresaBtn);
             ClientSize = new Size(800, 450);
             Controls.Add(nSpostati);
             Controls.Add(ListaVagoniAtt);
@@ -301,6 +328,7 @@
             ((System.ComponentModel.ISupportInitialize)contPasseggeri).EndInit();
             ((System.ComponentModel.ISupportInitialize)ViewVagoni).EndInit();
             ((System.ComponentModel.ISupportInitialize)indexVagone).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Carica).EndInit();
             ((System.ComponentModel.ISupportInitialize)nPostiCounter).EndInit();
             ((System.ComponentModel.ISupportInitialize)nSpostati).EndInit();
             ResumeLayout(false);
@@ -327,6 +355,8 @@
         private Button mettiVagone;
         private NumericUpDown indexVagone;
         private ComboBox tipiVagone;
+        private Button PresaBtn;
+        private PictureBox Carica;
         private NumericUpDown nPostiCounter;
         private Button spostaTanti;
         private ComboBox ListaVagoniAtt;
