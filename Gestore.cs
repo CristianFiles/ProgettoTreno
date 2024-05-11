@@ -179,7 +179,7 @@ namespace ProgettoTreno
                     await Task.Delay(1000);
                     Carica.Visible = false;
                 }
-                else MessageBox.Show("la presa non funziona.\nTentare su un altro vagone.");
+                else MessageBox.Show("Non ci sono prese.\nProvare su un altro vagone.");
             }
         }
             
