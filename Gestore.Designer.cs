@@ -48,10 +48,16 @@
             tipiVagone = new ComboBox();
             PresaBtn = new Button();
             Carica = new PictureBox();
+            nPostiCounter = new NumericUpDown();
+            spostaTanti = new Button();
+            ListaVagoniAtt = new ComboBox();
+            nSpostati = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)contPasseggeri).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ViewVagoni).BeginInit();
             ((System.ComponentModel.ISupportInitialize)indexVagone).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Carica).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nPostiCounter).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nSpostati).BeginInit();
             SuspendLayout();
             // 
             // MostraBigl
@@ -75,7 +81,8 @@
             // 
             // bottoneSali
             // 
-            bottoneSali.Location = new Point(352, 520);
+            bottoneSali.Location = new Point(347, 388);
+            bottoneSali.Margin = new Padding(3, 2, 3, 2);
             bottoneSali.Name = "bottoneSali";
             bottoneSali.Size = new Size(94, 29);
             bottoneSali.TabIndex = 1;
@@ -85,7 +92,8 @@
             // 
             // contPasseggeri
             // 
-            contPasseggeri.Location = new Point(352, 555);
+            contPasseggeri.Location = new Point(347, 415);
+            contPasseggeri.Margin = new Padding(3, 2, 3, 2);
             contPasseggeri.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
             contPasseggeri.Name = "contPasseggeri";
             contPasseggeri.Size = new Size(194, 27);
@@ -100,13 +108,14 @@
             ViewVagoni.ColumnHeadersHeight = 29;
             ViewVagoni.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             ViewVagoni.Columns.AddRange(new DataGridViewColumn[] { Vagoni, Passeggeri });
-            ViewVagoni.Location = new Point(553, 317);
+            ViewVagoni.Location = new Point(522, 238);
+            ViewVagoni.Margin = new Padding(3, 2, 3, 2);
             ViewVagoni.MultiSelect = false;
             ViewVagoni.Name = "ViewVagoni";
             ViewVagoni.ReadOnly = true;
             ViewVagoni.RowHeadersWidth = 51;
             ViewVagoni.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            ViewVagoni.Size = new Size(347, 268);
+            ViewVagoni.Size = new Size(265, 201);
             ViewVagoni.TabIndex = 2;
             ViewVagoni.CellContentClick += ViewVagoni_CellContentClick;
             // 
@@ -128,7 +137,8 @@
             // 
             // scendiBottone
             // 
-            scendiBottone.Location = new Point(453, 520);
+            scendiBottone.Location = new Point(436, 388);
+            scendiBottone.Margin = new Padding(3, 2, 3, 2);
             scendiBottone.Name = "scendiBottone";
             scendiBottone.Size = new Size(94, 29);
             scendiBottone.TabIndex = 3;
@@ -181,8 +191,7 @@
             // 
             // togliVagone
             // 
-            togliVagone.Location = new Point(263, 317);
-            togliVagone.Margin = new Padding(3, 4, 3, 4);
+            togliVagone.Location = new Point(395, 264);
             togliVagone.Name = "togliVagone";
             togliVagone.Size = new Size(138, 32);
             togliVagone.TabIndex = 8;
@@ -194,18 +203,16 @@
             // 
             ListaVagoniRim.DropDownStyle = ComboBoxStyle.DropDownList;
             ListaVagoniRim.FormattingEnabled = true;
-            ListaVagoniRim.Location = new Point(408, 319);
-            ListaVagoniRim.Margin = new Padding(3, 4, 3, 4);
+            ListaVagoniRim.Location = new Point(271, 264);
             ListaVagoniRim.Name = "ListaVagoniRim";
             ListaVagoniRim.Size = new Size(138, 28);
             ListaVagoniRim.TabIndex = 9;
             // 
             // mettiVagone
             // 
-            mettiVagone.Location = new Point(263, 392);
-            mettiVagone.Margin = new Padding(3, 4, 3, 4);
+            mettiVagone.Location = new Point(395, 332);
             mettiVagone.Name = "mettiVagone";
-            mettiVagone.Size = new Size(123, 33);
+            mettiVagone.Size = new Size(121, 25);
             mettiVagone.TabIndex = 10;
             mettiVagone.Text = "Aggiungi Vagone";
             mettiVagone.UseVisualStyleBackColor = true;
@@ -213,20 +220,20 @@
             // 
             // indexVagone
             // 
-            indexVagone.Location = new Point(393, 395);
+            indexVagone.Location = new Point(474, 305);
+            indexVagone.Margin = new Padding(3, 2, 3, 2);
             indexVagone.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
             indexVagone.Name = "indexVagone";
-            indexVagone.Size = new Size(33, 27);
+            indexVagone.Size = new Size(42, 23);
             indexVagone.TabIndex = 11;
             // 
             // tipiVagone
             // 
             tipiVagone.DropDownStyle = ComboBoxStyle.DropDownList;
             tipiVagone.FormattingEnabled = true;
-            tipiVagone.Location = new Point(433, 395);
-            tipiVagone.Margin = new Padding(3, 4, 3, 4);
+            tipiVagone.Location = new Point(347, 304);
             tipiVagone.Name = "tipiVagone";
-            tipiVagone.Size = new Size(66, 28);
+            tipiVagone.Size = new Size(121, 23);
             tipiVagone.TabIndex = 12;
             // 
             // PresaBtn
@@ -248,13 +255,56 @@
             Carica.TabIndex = 14;
             Carica.TabStop = false;
             // 
+            // nPostiCounter
+            // 
+            nPostiCounter.Location = new Point(347, 332);
+            nPostiCounter.Margin = new Padding(3, 2, 3, 2);
+            nPostiCounter.Maximum = new decimal(new int[] { 60, 0, 0, 0 });
+            nPostiCounter.Minimum = new decimal(new int[] { 12, 0, 0, 0 });
+            nPostiCounter.Name = "nPostiCounter";
+            nPostiCounter.Size = new Size(42, 23);
+            nPostiCounter.TabIndex = 13;
+            nPostiCounter.Value = new decimal(new int[] { 12, 0, 0, 0 });
+            // 
+            // spostaTanti
+            // 
+            spostaTanti.Location = new Point(220, 387);
+            spostaTanti.Name = "spostaTanti";
+            spostaTanti.Size = new Size(121, 23);
+            spostaTanti.TabIndex = 14;
+            spostaTanti.Text = "Sposta";
+            spostaTanti.UseVisualStyleBackColor = true;
+            spostaTanti.Click += spostaTanti_Click;
+            // 
+            // ListaVagoniAtt
+            // 
+            ListaVagoniAtt.DropDownStyle = ComboBoxStyle.DropDownList;
+            ListaVagoniAtt.FormattingEnabled = true;
+            ListaVagoniAtt.Location = new Point(260, 414);
+            ListaVagoniAtt.Name = "ListaVagoniAtt";
+            ListaVagoniAtt.Size = new Size(81, 23);
+            ListaVagoniAtt.TabIndex = 15;
+            // 
+            // nSpostati
+            // 
+            nSpostati.Location = new Point(220, 414);
+            nSpostati.Margin = new Padding(3, 2, 3, 2);
+            nSpostati.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
+            nSpostati.Name = "nSpostati";
+            nSpostati.Size = new Size(34, 23);
+            nSpostati.TabIndex = 16;
+            // 
             // Gestore
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
             Controls.Add(Carica);
             Controls.Add(PresaBtn);
+            ClientSize = new Size(800, 450);
+            Controls.Add(nSpostati);
+            Controls.Add(ListaVagoniAtt);
+            Controls.Add(spostaTanti);
+            Controls.Add(nPostiCounter);
             Controls.Add(tipiVagone);
             Controls.Add(indexVagone);
             Controls.Add(mettiVagone);
@@ -270,7 +320,8 @@
             Controls.Add(ViewVagoni);
             Controls.Add(CreaBigl);
             Controls.Add(MostraBigl);
-            Margin = new Padding(3, 4, 3, 4);
+            MaximumSize = new Size(816, 489);
+            MinimumSize = new Size(816, 489);
             Name = "Gestore";
             Text = "Gestore";
             Load += Gestore_Load;
@@ -278,6 +329,8 @@
             ((System.ComponentModel.ISupportInitialize)ViewVagoni).EndInit();
             ((System.ComponentModel.ISupportInitialize)indexVagone).EndInit();
             ((System.ComponentModel.ISupportInitialize)Carica).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nPostiCounter).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nSpostati).EndInit();
             ResumeLayout(false);
         }
 
@@ -304,5 +357,9 @@
         private ComboBox tipiVagone;
         private Button PresaBtn;
         private PictureBox Carica;
+        private NumericUpDown nPostiCounter;
+        private Button spostaTanti;
+        private ComboBox ListaVagoniAtt;
+        private NumericUpDown nSpostati;
     }
 }

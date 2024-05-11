@@ -52,7 +52,7 @@
             // 
             TipiBiglietti.DropDownStyle = ComboBoxStyle.DropDownList;
             TipiBiglietti.FormattingEnabled = true;
-            TipiBiglietti.Location = new Point(23, 39);
+            TipiBiglietti.Location = new Point(25, 39);
             TipiBiglietti.Name = "TipiBiglietti";
             TipiBiglietti.Size = new Size(121, 23);
             TipiBiglietti.TabIndex = 1;
@@ -79,14 +79,14 @@
             // 
             dest.DropDownStyle = ComboBoxStyle.DropDownList;
             dest.FormattingEnabled = true;
-            dest.Location = new Point(25, 100);
+            dest.Location = new Point(25, 97);
             dest.Name = "dest";
             dest.Size = new Size(121, 23);
             dest.TabIndex = 4;
             // 
             // passeggero
             // 
-            passeggero.Location = new Point(25, 160);
+            passeggero.Location = new Point(25, 149);
             passeggero.Margin = new Padding(3, 2, 3, 2);
             passeggero.Name = "passeggero";
             passeggero.Size = new Size(121, 23);
@@ -114,7 +114,10 @@
             Controls.Add(TipiBiglietti);
             Controls.Add(NuovoBiglietto);
             Margin = new Padding(3, 2, 3, 2);
+            MaximumSize = new Size(224, 320);
+            MinimumSize = new Size(224, 320);
             Name = "FormBiglietto";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Biglietteria";
             FormClosing += Form1_FormClosing;
             Load += FormBiglietto_Load;
