@@ -12,9 +12,7 @@ namespace ProgettoTreno
 {
     public partial class Gestore : Form
     {
-        public static Biglietteria biglietteria = new();
-
-        public static Biglietto? biglietto;
+        public static List<Biglietto> biglietti = new List<Biglietto>();
 
         public static List<Vagone> Treno = [];
 
@@ -58,8 +56,8 @@ namespace ProgettoTreno
 
         private void MostraBigl_Click(object sender, EventArgs e)
         {
-            if (biglietto != null)
-                MessageBox.Show(biglietto.ToString());
+            if (!biglietti.Any())
+                biglietti.ForEach(b => MessageBox.Show(b.ToString()));
             else
                 MessageBox.Show("Non hai un biglietto!");
         }
@@ -111,10 +109,10 @@ namespace ProgettoTreno
 
         private void ElimBiglietto_Click(object sender, EventArgs e)
         {
-            if (biglietto != null)
+            if (biglietti != null)
             {
-                Treno[biglietto.vagone].PrimoLibero--;
-                biglietto = null;
+                //Treno[biglietti.vagone].PrimoLibero--;
+                biglietti = null;
             }
         }
 
@@ -130,14 +128,16 @@ namespace ProgettoTreno
 
         private void SpostaUtente_Click(object sender, EventArgs e)
         {
-            if (vagoneCorrente == null || biglietto == null) MessageBox.Show("Selezione del vagone o biglietto mancante, riprova!");
+            if (vagoneCorrente == null || biglietti == null) MessageBox.Show("Selezione del vagone o biglietto mancante, riprova!");
             else
             {
-                if (Treno[ListaDropVagoni.SelectedIndex].Accessibile(biglietto))
+                /*
+                if (Treno[ListaDropVagoni.SelectedIndex].Accessibile(biglietti))
                 {
                     vagoneCorrente = vagoneCorrente.Sposta(Treno[ListaDropVagoni.SelectedIndex]);
                 }
-                else MessageBox.Show("Questo vagone non è accessibile con il tuo biglietto!");
+                */
+                /*else*/ MessageBox.Show("Questo vagone non è accessibile con il tuo biglietto!");
             }
             PopulateDataGridView();
         }

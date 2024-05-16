@@ -1,8 +1,15 @@
 using System.Windows.Forms;
 using System;
 using static ProgettoTreno.Gestore;
+using System.Diagnostics;
 namespace ProgettoTreno
 {
+    /*Ciao
+     
+
+
+    ciao*/
+
     public partial class FormBiglietto : Form
     {
         public FormBiglietto()
@@ -20,26 +27,33 @@ namespace ProgettoTreno
 
         private void NuovoBiglietto_Click(object sender, EventArgs e)
         {
-            if (biglietto == null && TipiBiglietti.SelectedItem != null && dest.SelectedItem != null)
+            if (TipiBiglietti.SelectedItem != null && dest.SelectedItem != null)
             {
                 #pragma warning disable CS8604 // Possibile argomento di riferimento Null.
-                biglietto = biglietteria.CreaBiglietto(TipiBiglietti.SelectedItem.ToString(), dest.SelectedItem.ToString(), Treno, passeggero.Text);
-                MessageBox.Show(biglietto.ToString());
+                biglietti.Add(new Biglietto(TipiBiglietti.SelectedItem.ToString(), dest.SelectedItem.ToString(), Treno, passeggero.Text));
+                MessageBox.Show(biglietti.ToString());
             }
             else if (TipiBiglietti.SelectedItem == null)
                 MessageBox.Show("Seleziona un tipo di biglietto!");
-            else
-                MessageBox.Show("Hai già aquistato un biglietto!");
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(!Program.gestore.IsDisposed)
+            if (!Program.gestore.IsDisposed)
                 Program.gestore.PopulateDataGridView();
         }
 
         private void FormBiglietto_Load(object sender, EventArgs e)
         {
+        }
+
+        private void loop_Tick(object sender, EventArgs e)
+        {
+            if(TipiBiglietti.SelectedItem == null || dest.SelectedItem == null || passeggero.Text == "" || nBiglietti.Value == 0)
+                NuovoBiglietto.Enabled = false;
+            else
+                NuovoBiglietto.Enabled = true;
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             NuovoBiglietto = new Button();
             TipiBiglietti = new ComboBox();
             label1 = new Label();
@@ -37,6 +38,7 @@
             label3 = new Label();
             nBiglietti = new NumericUpDown();
             label4 = new Label();
+            loop = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)nBiglietti).BeginInit();
             SuspendLayout();
             // 
@@ -120,6 +122,11 @@
             label4.TabIndex = 8;
             label4.Text = "Numero biglietti";
             // 
+            // loop
+            // 
+            loop.Enabled = true;
+            loop.Tick += loop_Tick;
+            // 
             // FormBiglietto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -158,5 +165,6 @@
         private Label label3;
         private NumericUpDown nBiglietti;
         private Label label4;
+        private System.Windows.Forms.Timer loop;
     }
 }
