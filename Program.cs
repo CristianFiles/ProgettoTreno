@@ -12,9 +12,7 @@ namespace ProgettoTreno
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            gestore.Show();
-            Application.Run();
-            
+            Application.Run(gestore);
         }
     }
 }

@@ -89,7 +89,7 @@
             // 
             // bottoneSali
             // 
-            bottoneSali.Location = new Point(305, 386);
+            bottoneSali.Location = new Point(278, 386);
             bottoneSali.Margin = new Padding(3, 2, 3, 2);
             bottoneSali.Name = "bottoneSali";
             bottoneSali.Size = new Size(82, 24);
@@ -100,7 +100,7 @@
             // 
             // contPasseggeri
             // 
-            contPasseggeri.Location = new Point(305, 413);
+            contPasseggeri.Location = new Point(278, 413);
             contPasseggeri.Margin = new Padding(3, 2, 3, 2);
             contPasseggeri.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
             contPasseggeri.Name = "contPasseggeri";
@@ -116,14 +116,14 @@
             ViewVagoni.ColumnHeadersHeight = 29;
             ViewVagoni.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             ViewVagoni.Columns.AddRange(new DataGridViewColumn[] { Vagoni, Passeggeri });
-            ViewVagoni.Location = new Point(483, 238);
+            ViewVagoni.Location = new Point(470, 238);
             ViewVagoni.Margin = new Padding(3, 2, 3, 2);
             ViewVagoni.MultiSelect = false;
             ViewVagoni.Name = "ViewVagoni";
             ViewVagoni.ReadOnly = true;
             ViewVagoni.RowHeadersWidth = 51;
             ViewVagoni.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            ViewVagoni.Size = new Size(304, 201);
+            ViewVagoni.Size = new Size(317, 201);
             ViewVagoni.TabIndex = 2;
             ViewVagoni.CellContentClick += ViewVagoni_CellContentClick;
             // 
@@ -145,7 +145,7 @@
             // 
             // scendiBottone
             // 
-            scendiBottone.Location = new Point(393, 386);
+            scendiBottone.Location = new Point(366, 386);
             scendiBottone.Margin = new Padding(3, 2, 3, 2);
             scendiBottone.Name = "scendiBottone";
             scendiBottone.Size = new Size(82, 24);
@@ -275,7 +275,7 @@
             // 
             // spostaTanti
             // 
-            spostaTanti.Location = new Point(342, 313);
+            spostaTanti.Location = new Point(315, 313);
             spostaTanti.Name = "spostaTanti";
             spostaTanti.Size = new Size(134, 23);
             spostaTanti.TabIndex = 14;
@@ -287,14 +287,14 @@
             // 
             ListaVagoniAtt.DropDownStyle = ComboBoxStyle.DropDownList;
             ListaVagoniAtt.FormattingEnabled = true;
-            ListaVagoniAtt.Location = new Point(382, 284);
+            ListaVagoniAtt.Location = new Point(355, 284);
             ListaVagoniAtt.Name = "ListaVagoniAtt";
             ListaVagoniAtt.Size = new Size(94, 23);
             ListaVagoniAtt.TabIndex = 15;
             // 
             // nSpostati
             // 
-            nSpostati.Location = new Point(342, 284);
+            nSpostati.Location = new Point(315, 284);
             nSpostati.Margin = new Padding(3, 2, 3, 2);
             nSpostati.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
             nSpostati.Name = "nSpostati";
@@ -340,7 +340,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(341, 266);
+            label5.Location = new Point(314, 266);
             label5.Name = "label5";
             label5.Size = new Size(134, 15);
             label5.TabIndex = 21;
@@ -349,7 +349,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(305, 369);
+            label6.Location = new Point(278, 369);
             label6.Name = "label6";
             label6.Size = new Size(112, 15);
             label6.TabIndex = 22;
@@ -387,6 +387,7 @@
             Controls.Add(ViewVagoni);
             Controls.Add(CreaBigl);
             Controls.Add(MostraBigl);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(816, 489);
             MinimumSize = new Size(816, 489);
             Name = "Gestore";

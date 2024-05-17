@@ -29,12 +29,14 @@ namespace ProgettoTreno
         {
             if (TipiBiglietti.SelectedItem != null && dest.SelectedItem != null)
             {
-                #pragma warning disable CS8604 // Possibile argomento di riferimento Null.
-                biglietti.Add(new Biglietto(TipiBiglietti.SelectedItem.ToString(), dest.SelectedItem.ToString(), Treno, passeggero.Text));
-                MessageBox.Show(biglietti.ToString());
+                for (int i = 0; i < nBiglietti.Value; i++)
+                {
+                    //C'è il controllo su null ma continua a dare warning, mi dava fastidio
+                    #pragma warning disable CS8604 // Possibile argomento di riferimento Null.
+                    biglietti.Add(new Biglietto(TipiBiglietti.SelectedItem.ToString(), dest.SelectedItem.ToString(), Treno, passeggero.Text));
+                }
+                biglietti.ForEach(b => MessageBox.Show(b.ToString()));
             }
-            else if (TipiBiglietti.SelectedItem == null)
-                MessageBox.Show("Seleziona un tipo di biglietto!");
 
         }
 

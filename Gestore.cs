@@ -35,13 +35,15 @@ namespace ProgettoTreno
             Treno.Add(new Silenzio(20));
             Treno.Add(new Fumatori(10));
         }
+
+        //Aggiorna i vagoni del treno nella lista
         public void PopulateDataGridView()
         {
             ViewVagoni.Rows.Clear();
             Treno.ForEach(v => ViewVagoni.Rows.Add(new string[] { v.TipoVagone().ToString(), v.passeggeri.ToString() }));
         }
 
-
+        //Aggiorna i vari dropdown ecc quando necessario
         private void Gestore_Load(object sender, EventArgs e)
         {
             InitListaVagoni(ListaDropVagoni);
@@ -56,7 +58,7 @@ namespace ProgettoTreno
 
         private void MostraBigl_Click(object sender, EventArgs e)
         {
-            if (!biglietti.Any())
+            if (biglietti.Any())
                 biglietti.ForEach(b => MessageBox.Show(b.ToString()));
             else
                 MessageBox.Show("Non hai un biglietto!");
@@ -69,6 +71,7 @@ namespace ProgettoTreno
             creatoreBiglietto.Show();
         }
 
+        
         private void bottoneSali_Click(object sender, EventArgs e)
         {
             int salenti = (int)contPasseggeri.Value;
@@ -77,6 +80,7 @@ namespace ProgettoTreno
                 salenti = vagoneSelezionato.ClusterSali(salenti);
                 if (salenti > 0)
                 {
+                    //Cerca un vagone dove inserire le persone se quello selezionato è pieno
                     Treno.ForEach(v =>
                     {
                         if (v.TipoVagone() == vagoneSelezionato.TipoVagone())
@@ -92,12 +96,13 @@ namespace ProgettoTreno
             MessageBox.Show("Non saliti: " + salenti);
         }
 
-
+        //Cambia il vagone selezionato
         private void ViewVagoni_CellContentClick(object sender, DataGridViewCellEventArgs e) => vagoneSelezionato = Treno.ElementAt(e.RowIndex);
 
         private void scendiBottone_Click(object sender, EventArgs e)
         {
             int scendenti = (int)contPasseggeri.Value;
+            //Se non si può scendere ritorna falso, altrimenti la chiamata della funzione nella condizione fa quello che deve fare
             if (vagoneSelezionato != null && !vagoneSelezionato.ClusterScendi(scendenti))
             {
                 MessageBox.Show("Non puoi scendere da questo vagone");
@@ -109,11 +114,13 @@ namespace ProgettoTreno
 
         private void ElimBiglietto_Click(object sender, EventArgs e)
         {
-            if (biglietti != null)
+            biglietti.ForEach(v =>
             {
-                //Treno[biglietti.vagone].PrimoLibero--;
-                biglietti = null;
-            }
+                Treno[v.vagone].PrimoLibero--;
+                Treno[v.vagone].passeggeri--;
+            });
+            biglietti.Clear();
+            Gestore_Load(sender, e);
         }
 
         private void collegaWifi_Click(object sender, EventArgs e)
@@ -174,13 +181,13 @@ namespace ProgettoTreno
             if (vagoneCorrente == null) MessageBox.Show("Compra prima un biglietto");
             else
             {
-                if (vagoneCorrente.Caricatori)
+                if (vagoneCorrente.Caricatori && biglietti.Count != 0)
                 {
                     Carica.Visible = true;
                     await Task.Delay(1000);
                     Carica.Visible = false;
                 }
-                else MessageBox.Show("Non ci sono prese.\nProvare su un altro vagone.");
+                else MessageBox.Show("Non ci sono prese o biglietto mancante.\nProvare su un altro vagone.");
             }
         }
 

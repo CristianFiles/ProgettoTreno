@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBiglietto));
             NuovoBiglietto = new Button();
             TipiBiglietti = new ComboBox();
             label1 = new Label();
@@ -141,6 +142,7 @@
             Controls.Add(label1);
             Controls.Add(TipiBiglietti);
             Controls.Add(NuovoBiglietto);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             MaximumSize = new Size(224, 320);
             MinimumSize = new Size(224, 320);
