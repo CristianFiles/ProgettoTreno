@@ -12,7 +12,6 @@ namespace ProgettoTreno
         internal readonly int posti = posti;
         internal int passeggeri = 0;
         public int PrimoLibero { get; set;} = 0;
-        bool vagonePieno = false;
         public int Disponibili => posti - passeggeri;
         public virtual bool AccessoWIFI => false;
         public virtual bool Caricatori => false;
@@ -47,7 +46,6 @@ namespace ProgettoTreno
                 passeggeri = posti;
             if (avanzati > 0)
             {
-                vagonePieno = true;
                 PrimoLibero = posti + 1;
                 return avanzati;
             }
@@ -77,19 +75,20 @@ namespace ProgettoTreno
             else return false;
         }
 
-        public Vagone Sposta(Vagone altro) 
+        public Vagone Sposta(Vagone altro, List<Biglietto> bigl) 
         {
-            if (altro.Disponibili > 0)
+            int pers = bigl.Count();
+            if (altro.Disponibili >= pers)
             {
-                altro.passeggeri++;
-                altro.PrimoLibero++;
-                passeggeri--;
-                PrimoLibero--;
+                altro.passeggeri += pers;
+                altro.PrimoLibero += pers;
+                passeggeri  -= pers;
+                PrimoLibero -= pers;
                 return altro;
             }
             else
             {
-                MessageBox.Show("Vagone selezionato pieno!");
+                MessageBox.Show("Questo vagone non ha abbastanza posti!");
                 return this;
             }
         }
@@ -103,7 +102,6 @@ namespace ProgettoTreno
                 PrimoLibero -= vagone.Disponibili;
                 vagone.passeggeri = vagone.posti;
                 vagone.PrimoLibero = vagone.posti + 1;
-                vagone.vagonePieno = true;
             }
             else
             {

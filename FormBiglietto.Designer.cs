@@ -37,25 +37,27 @@
             dest = new ComboBox();
             passeggero = new TextBox();
             label3 = new Label();
-            nBiglietti = new NumericUpDown();
-            label4 = new Label();
+            LabelBiglietti = new Label();
             loop = new System.Windows.Forms.Timer(components);
-            ((System.ComponentModel.ISupportInitialize)nBiglietti).BeginInit();
             SuspendLayout();
             // 
             // NuovoBiglietto
             // 
+            NuovoBiglietto.BackColor = Color.Gray;
+            NuovoBiglietto.Font = new Font("Yu Gothic UI", 9.75F);
+            NuovoBiglietto.ForeColor = Color.WhiteSmoke;
             NuovoBiglietto.Location = new Point(30, 229);
             NuovoBiglietto.Margin = new Padding(3, 2, 3, 2);
             NuovoBiglietto.Name = "NuovoBiglietto";
             NuovoBiglietto.Size = new Size(111, 29);
             NuovoBiglietto.TabIndex = 0;
             NuovoBiglietto.Text = "Nuovo Biglietto";
-            NuovoBiglietto.UseVisualStyleBackColor = true;
+            NuovoBiglietto.UseVisualStyleBackColor = false;
             NuovoBiglietto.Click += NuovoBiglietto_Click;
             // 
             // TipiBiglietti
             // 
+            TipiBiglietti.BackColor = Color.Gray;
             TipiBiglietti.DropDownStyle = ComboBoxStyle.DropDownList;
             TipiBiglietti.FormattingEnabled = true;
             TipiBiglietti.Location = new Point(29, 43);
@@ -66,23 +68,28 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(30, 25);
+            label1.Font = new Font("Yu Gothic UI", 9.75F, FontStyle.Bold);
+            label1.ForeColor = Color.WhiteSmoke;
+            label1.Location = new Point(29, 23);
             label1.Name = "label1";
-            label1.Size = new Size(131, 15);
+            label1.Size = new Size(149, 17);
             label1.TabIndex = 2;
             label1.Text = "Scegli il tipo di biglietto";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Yu Gothic UI", 9.75F, FontStyle.Bold);
+            label2.ForeColor = Color.WhiteSmoke;
             label2.Location = new Point(29, 69);
             label2.Name = "label2";
-            label2.Size = new Size(107, 15);
+            label2.Size = new Size(122, 17);
             label2.TabIndex = 3;
             label2.Text = "Scegli destinazione";
             // 
             // dest
             // 
+            dest.BackColor = Color.Gray;
             dest.DropDownStyle = ComboBoxStyle.DropDownList;
             dest.FormattingEnabled = true;
             dest.Location = new Point(30, 87);
@@ -92,6 +99,8 @@
             // 
             // passeggero
             // 
+            passeggero.BackColor = Color.Gray;
+            passeggero.ForeColor = Color.WhiteSmoke;
             passeggero.Location = new Point(29, 130);
             passeggero.Margin = new Padding(3, 2, 3, 2);
             passeggero.Name = "passeggero";
@@ -101,27 +110,24 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Yu Gothic UI", 9.75F, FontStyle.Bold);
+            label3.ForeColor = Color.WhiteSmoke;
             label3.Location = new Point(31, 113);
             label3.Name = "label3";
-            label3.Size = new Size(103, 15);
+            label3.Size = new Size(117, 17);
             label3.TabIndex = 6;
             label3.Text = "Nome e cognome";
             // 
-            // nBiglietti
+            // LabelBiglietti
             // 
-            nBiglietti.Location = new Point(29, 173);
-            nBiglietti.Name = "nBiglietti";
-            nBiglietti.Size = new Size(122, 23);
-            nBiglietti.TabIndex = 7;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(32, 155);
-            label4.Name = "label4";
-            label4.Size = new Size(94, 15);
-            label4.TabIndex = 8;
-            label4.Text = "Numero biglietti";
+            LabelBiglietti.AutoSize = true;
+            LabelBiglietti.Font = new Font("Yu Gothic UI", 9.75F, FontStyle.Bold);
+            LabelBiglietti.ForeColor = Color.WhiteSmoke;
+            LabelBiglietti.Location = new Point(29, 171);
+            LabelBiglietti.Name = "LabelBiglietti";
+            LabelBiglietti.Size = new Size(121, 17);
+            LabelBiglietti.TabIndex = 8;
+            LabelBiglietti.Text = "Numero biglietti: 0";
             // 
             // loop
             // 
@@ -132,9 +138,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DimGray;
             ClientSize = new Size(208, 281);
-            Controls.Add(label4);
-            Controls.Add(nBiglietti);
+            Controls.Add(LabelBiglietti);
             Controls.Add(label3);
             Controls.Add(passeggero);
             Controls.Add(dest);
@@ -150,8 +156,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Biglietteria";
             FormClosing += Form1_FormClosing;
-            Load += FormBiglietto_Load;
-            ((System.ComponentModel.ISupportInitialize)nBiglietti).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -165,8 +169,7 @@
         private ComboBox dest;
         private TextBox passeggero;
         private Label label3;
-        private NumericUpDown nBiglietti;
-        private Label label4;
+        private Label LabelBiglietti;
         private System.Windows.Forms.Timer loop;
     }
 }

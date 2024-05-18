@@ -16,13 +16,13 @@ namespace ProgettoTreno
 
         public static List<Vagone> Treno = [];
 
-        FormBiglietto? creatoreBiglietto;
+        FormBiglietto creatoreBiglietto = new FormBiglietto();
 
         Vagone? vagoneSelezionato;
 
         public Vagone? vagoneCorrente;
 
-        
+
         public Gestore()
         {
             InitializeComponent();
@@ -46,7 +46,6 @@ namespace ProgettoTreno
         //Aggiorna i vari dropdown ecc quando necessario
         private void Gestore_Load(object sender, EventArgs e)
         {
-            InitListaVagoni(ListaDropVagoni);
             InitListaVagoni(ListaVagoniRim);
             InitListaVagoni(ListaVagoniAtt);
             tipiVagone.Items.Clear();
@@ -66,12 +65,10 @@ namespace ProgettoTreno
 
         private void CreaBigl_Click(object sender, EventArgs e)
         {
-            if (creatoreBiglietto == null || creatoreBiglietto.IsDisposed)
-                creatoreBiglietto = new FormBiglietto();
             creatoreBiglietto.Show();
         }
 
-        
+
         private void bottoneSali_Click(object sender, EventArgs e)
         {
             int salenti = (int)contPasseggeri.Value;
@@ -135,16 +132,16 @@ namespace ProgettoTreno
 
         private void SpostaUtente_Click(object sender, EventArgs e)
         {
-            if (vagoneCorrente == null || biglietti == null) MessageBox.Show("Selezione del vagone o biglietto mancante, riprova!");
+            if (vagoneCorrente == null || biglietti == null || vagoneSelezionato == null || biglietti.Count == 0) MessageBox.Show("Selezione del vagone o biglietto mancante, riprova!");
             else
             {
-                /*
-                if (Treno[ListaDropVagoni.SelectedIndex].Accessibile(biglietti))
+
+                if (vagoneSelezionato.Accessibile(biglietti[0]))
                 {
-                    vagoneCorrente = vagoneCorrente.Sposta(Treno[ListaDropVagoni.SelectedIndex]);
+                    vagoneCorrente = vagoneCorrente.Sposta(vagoneSelezionato, biglietti);
                 }
-                */
-                /*else*/ MessageBox.Show("Questo vagone non è accessibile con il tuo biglietto!");
+
+                else MessageBox.Show("Questo vagone non è accessibile con il tuo biglietto!");
             }
             PopulateDataGridView();
         }
@@ -194,8 +191,13 @@ namespace ProgettoTreno
         private void spostaTanti_Click(object sender, EventArgs e)
         {
             if (vagoneSelezionato != null)
-                MessageBox.Show(vagoneSelezionato.ClusterSposta(Treno[ListaVagoniAtt.SelectedIndex], (int)nSpostati.Value).ToString());
+                MessageBox.Show("Non spostati: " + vagoneSelezionato.ClusterSposta(Treno[ListaVagoniAtt.SelectedIndex], (int)nSpostati.Value).ToString());
             Gestore_Load(sender, e);
+        }
+
+        private void nPostiCounter_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

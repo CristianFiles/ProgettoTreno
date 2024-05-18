@@ -9,11 +9,6 @@ using System.Threading.Tasks;
 
 namespace ProgettoTreno
 {
-    public class Biglietteria()
-    {
-        public Biglietto CreaBiglietto(string tipo, string dest, List<Vagone> Treno, string gen) => new Biglietto(tipo,dest, Treno, gen);
-    }
-
     public class Biglietto
     {
         public string tipoBiglietto,destinazione, nomeCognome;

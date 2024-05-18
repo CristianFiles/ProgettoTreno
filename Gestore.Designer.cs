@@ -39,7 +39,6 @@
             scendiBottone = new Button();
             ElimBiglietto = new Button();
             SpostaUtente = new Button();
-            ListaDropVagoni = new ComboBox();
             collegaWifi = new Button();
             togliVagone = new Button();
             ListaVagoniRim = new ComboBox();
@@ -123,6 +122,7 @@
             // contPasseggeri
             // 
             contPasseggeri.BackColor = Color.DarkGray;
+            contPasseggeri.ForeColor = Color.WhiteSmoke;
             contPasseggeri.Location = new Point(114, 55);
             contPasseggeri.Margin = new Padding(3, 2, 3, 2);
             contPasseggeri.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
@@ -138,13 +138,13 @@
             ViewVagoni.Anchor = AnchorStyles.None;
             ViewVagoni.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ViewVagoni.Columns.AddRange(new DataGridViewColumn[] { Vagoni, Passeggeri });
-            ViewVagoni.Location = new Point(461, 219);
+            ViewVagoni.Location = new Point(481, 219);
             ViewVagoni.Margin = new Padding(3, 2, 3, 2);
             ViewVagoni.MultiSelect = false;
             ViewVagoni.Name = "ViewVagoni";
             ViewVagoni.ReadOnly = true;
             ViewVagoni.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            ViewVagoni.Size = new Size(330, 220);
+            ViewVagoni.Size = new Size(295, 220);
             ViewVagoni.TabIndex = 2;
             ViewVagoni.CellContentClick += ViewVagoni_CellContentClick;
             // 
@@ -207,16 +207,6 @@
             SpostaUtente.UseVisualStyleBackColor = false;
             SpostaUtente.Click += SpostaUtente_Click;
             // 
-            // ListaDropVagoni
-            // 
-            ListaDropVagoni.BackColor = Color.DarkGray;
-            ListaDropVagoni.DropDownStyle = ComboBoxStyle.DropDownList;
-            ListaDropVagoni.FormattingEnabled = true;
-            ListaDropVagoni.Location = new Point(173, 126);
-            ListaDropVagoni.Name = "ListaDropVagoni";
-            ListaDropVagoni.Size = new Size(121, 23);
-            ListaDropVagoni.TabIndex = 6;
-            // 
             // collegaWifi
             // 
             collegaWifi.BackColor = Color.Gray;
@@ -272,6 +262,7 @@
             // indexVagone
             // 
             indexVagone.BackColor = Color.DarkGray;
+            indexVagone.ForeColor = Color.WhiteSmoke;
             indexVagone.Location = new Point(251, 24);
             indexVagone.Margin = new Padding(3, 2, 3, 2);
             indexVagone.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
@@ -318,6 +309,7 @@
             // nPostiCounter
             // 
             nPostiCounter.BackColor = Color.Gray;
+            nPostiCounter.ForeColor = Color.WhiteSmoke;
             nPostiCounter.Location = new Point(86, 63);
             nPostiCounter.Margin = new Padding(3, 2, 3, 2);
             nPostiCounter.Maximum = new decimal(new int[] { 60, 0, 0, 0 });
@@ -326,13 +318,14 @@
             nPostiCounter.Size = new Size(42, 23);
             nPostiCounter.TabIndex = 13;
             nPostiCounter.Value = new decimal(new int[] { 12, 0, 0, 0 });
+            nPostiCounter.ValueChanged += nPostiCounter_ValueChanged;
             // 
             // spostaTanti
             // 
             spostaTanti.BackColor = Color.Gray;
             spostaTanti.Font = new Font("Yu Gothic UI", 9.75F);
             spostaTanti.ForeColor = Color.WhiteSmoke;
-            spostaTanti.Location = new Point(31, 66);
+            spostaTanti.Location = new Point(20, 50);
             spostaTanti.Name = "spostaTanti";
             spostaTanti.Size = new Size(134, 28);
             spostaTanti.TabIndex = 14;
@@ -346,7 +339,7 @@
             ListaVagoniAtt.BackColor = Color.DarkGray;
             ListaVagoniAtt.DropDownStyle = ComboBoxStyle.DropDownList;
             ListaVagoniAtt.FormattingEnabled = true;
-            ListaVagoniAtt.Location = new Point(71, 38);
+            ListaVagoniAtt.Location = new Point(60, 22);
             ListaVagoniAtt.Name = "ListaVagoniAtt";
             ListaVagoniAtt.Size = new Size(94, 23);
             ListaVagoniAtt.TabIndex = 15;
@@ -354,7 +347,8 @@
             // nSpostati
             // 
             nSpostati.BackColor = Color.Gray;
-            nSpostati.Location = new Point(31, 38);
+            nSpostati.ForeColor = Color.WhiteSmoke;
+            nSpostati.Location = new Point(20, 22);
             nSpostati.Margin = new Padding(3, 2, 3, 2);
             nSpostati.Maximum = new decimal(new int[] { 200, 0, 0, 0 });
             nSpostati.Name = "nSpostati";
@@ -426,9 +420,9 @@
             groupBox3.Controls.Add(spostaTanti);
             groupBox3.Controls.Add(nSpostati);
             groupBox3.ForeColor = Color.White;
-            groupBox3.Location = new Point(6, 21);
+            groupBox3.Location = new Point(6, 22);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(200, 100);
+            groupBox3.Size = new Size(200, 99);
             groupBox3.TabIndex = 25;
             groupBox3.TabStop = false;
             groupBox3.Text = "Sposta in altro vagone";
@@ -483,7 +477,6 @@
             Controls.Add(Carica);
             Controls.Add(PresaBtn);
             Controls.Add(collegaWifi);
-            Controls.Add(ListaDropVagoni);
             Controls.Add(SpostaUtente);
             Controls.Add(ElimBiglietto);
             Controls.Add(ViewVagoni);
@@ -525,7 +518,6 @@
         private Button scendiBottone;
         private Button ElimBiglietto;
         private Button SpostaUtente;
-        private ComboBox ListaDropVagoni;
         private Button collegaWifi;
         private Button togliVagone;
         private ComboBox ListaVagoniRim;
