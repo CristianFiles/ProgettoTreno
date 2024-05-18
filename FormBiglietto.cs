@@ -2,6 +2,7 @@ using System.Windows.Forms;
 using System;
 using static ProgettoTreno.Gestore;
 using System.Diagnostics;
+using System.Configuration;
 namespace ProgettoTreno
 {
     public partial class FormBiglietto : Form
@@ -51,15 +52,20 @@ namespace ProgettoTreno
                 NuovoBiglietto.Enabled = true;
         }
 
-        private void FormBiglietto_Load(object sender, EventArgs e)
+        public void FormBiglietto_Load(object sender, EventArgs e)
         {
             if (biglietti.Count != 0)
             {
                 TipiBiglietti.Enabled = false;
                 dest.Enabled = false;
             }
-        }
+            else
+            {
+                TipiBiglietti.Enabled = true;
+                dest.Enabled = true;
+            }
 
-       
+            LabelBiglietti.Text = "Numero biglietti: " + biglietti.Count;
+        }
     }
 }

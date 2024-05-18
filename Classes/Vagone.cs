@@ -95,21 +95,25 @@ namespace ProgettoTreno
 
         public int ClusterSposta(Vagone vagone, int spostati)
         {
-            if(vagone.Disponibili <= spostati)
-            {
-                spostati -= vagone.Disponibili;
-                passeggeri -= vagone.Disponibili;
-                PrimoLibero -= vagone.Disponibili;
-                vagone.passeggeri = vagone.posti;
-                vagone.PrimoLibero = vagone.posti + 1;
-            }
+            if (passeggeri < spostati) MessageBox.Show("Non ci sono abbastanza passeggeri!");
             else
             {
-                passeggeri -= spostati;
-                PrimoLibero -= spostati;
-                vagone.passeggeri += spostati;
-                vagone.PrimoLibero += spostati;
-                spostati = 0;
+                if (vagone.Disponibili <= spostati)
+                {
+                    spostati -= vagone.Disponibili;
+                    passeggeri -= vagone.Disponibili;
+                    PrimoLibero -= vagone.Disponibili;
+                    vagone.passeggeri = vagone.posti;
+                    vagone.PrimoLibero = vagone.posti + 1;
+                }
+                else
+                {
+                    passeggeri -= spostati;
+                    PrimoLibero -= spostati;
+                    vagone.passeggeri += spostati;
+                    vagone.PrimoLibero += spostati;
+                    spostati = 0;
+                }
             }
             return spostati;
         }

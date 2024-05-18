@@ -156,6 +156,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Biglietteria";
             FormClosing += Form1_FormClosing;
+            Load += FormBiglietto_Load;
             ResumeLayout(false);
             PerformLayout();
         }

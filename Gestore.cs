@@ -117,6 +117,7 @@ namespace ProgettoTreno
                 Treno[v.vagone].passeggeri--;
             });
             biglietti.Clear();
+            creatoreBiglietto.FormBiglietto_Load(sender, e);
             Gestore_Load(sender, e);
         }
 
@@ -190,8 +191,14 @@ namespace ProgettoTreno
 
         private void spostaTanti_Click(object sender, EventArgs e)
         {
-            if (vagoneSelezionato != null)
-                MessageBox.Show("Non spostati: " + vagoneSelezionato.ClusterSposta(Treno[ListaVagoniAtt.SelectedIndex], (int)nSpostati.Value).ToString());
+            int rimasti = 0;
+            if (vagoneSelezionato != null && ListaVagoniAtt.SelectedIndex >= 0)
+            {
+                rimasti = vagoneSelezionato.ClusterSposta(Treno[ListaVagoniAtt.SelectedIndex], (int)nSpostati.Value);
+                if (vagoneCorrente == vagoneSelezionato)
+                    vagoneCorrente = Treno[ListaVagoniAtt.SelectedIndex];
+            }
+            MessageBox.Show("Non spostati: " + rimasti);
             Gestore_Load(sender, e);
         }
 
