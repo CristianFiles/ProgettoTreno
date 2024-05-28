@@ -77,7 +77,7 @@ namespace ProgettoTreno
 
         public Vagone Sposta(Vagone altro, List<Biglietto> bigl) 
         {
-            int pers = bigl.Count();
+            int pers = bigl.Count;
             if (altro.Disponibili >= pers)
             {
                 altro.passeggeri += pers;

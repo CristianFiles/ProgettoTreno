@@ -135,6 +135,7 @@
             ViewVagoni.AllowUserToAddRows = false;
             ViewVagoni.AllowUserToDeleteRows = false;
             ViewVagoni.AllowUserToResizeColumns = false;
+            ViewVagoni.AllowUserToResizeRows = false;
             ViewVagoni.Anchor = AnchorStyles.None;
             ViewVagoni.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ViewVagoni.Columns.AddRange(new DataGridViewColumn[] { Vagoni, Passeggeri });

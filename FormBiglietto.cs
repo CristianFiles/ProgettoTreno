@@ -3,6 +3,7 @@ using System;
 using static ProgettoTreno.Gestore;
 using System.Diagnostics;
 using System.Configuration;
+using System.Numerics;
 namespace ProgettoTreno
 {
     public partial class FormBiglietto : Form
@@ -25,12 +26,17 @@ namespace ProgettoTreno
         {
             if (TipiBiglietti.SelectedItem != null && dest.SelectedItem != null)
             {
-                //C'è il controllo su null ma continua a dare warning, mi dava fastidio
-#pragma warning disable CS8604 // Possibile argomento di riferimento Null.
-                biglietti.Add(new Biglietto(TipiBiglietti.SelectedItem.ToString(), dest.SelectedItem.ToString(), Treno, passeggero.Text));
-                LabelBiglietti.Text = "Numero biglietti: " + biglietti.Count;
+                #pragma warning disable CS8604 // Possibile argomento di riferimento Null.
+                Biglietto? bigl = Biglietto.creaBiglietto(TipiBiglietti.SelectedItem.ToString(), dest.SelectedItem.ToString(), Treno, passeggero.Text);
+                #pragma warning restore CS8604 // Possibile argomento di riferimento Null.
+                if (bigl != null)
+                {
+                    biglietti.Add(bigl);
+                    LabelBiglietti.Text = "Numero biglietti: " + biglietti.Count;
+                }
                 //biglietti.ForEach(b => MessageBox.Show(b.ToString()));
             }
+            else MessageBox.Show("Valori inseriti non validi!");
             FormBiglietto_Load(sender, e);
         }
 
@@ -52,7 +58,7 @@ namespace ProgettoTreno
                 NuovoBiglietto.Enabled = true;
         }
 
-        public void FormBiglietto_Load(object sender, EventArgs e)
+        public void FormBiglietto_Load(object? sender, EventArgs? e)
         {
             if (biglietti.Count != 0)
             {

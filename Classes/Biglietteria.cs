@@ -6,6 +6,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static ProgettoTreno.Biglietto;
 
 namespace ProgettoTreno
 {
@@ -16,13 +17,9 @@ namespace ProgettoTreno
         public DateTime dataCreazione;
         
 
-        internal Biglietto(string tipo, string dest, List<Vagone> Treno, string generalita) 
+        internal Biglietto(string tipo, string dest, List<Vagone> Treno, string generalita, int vagone) 
         {
-            //Potrebbe esserci un problema se si cerca di creare un biglietto per un vagone già pieno
-            vagone = Treno.FindIndex(v => v.bigliettiAccessibili.Contains(tipo.ToString()) && v.bigliettiAccessibili.Count() == 1 && v.Disponibili > 0);
-            //if (vagone == -1) MessageBox.Show("Non è stato possibile trovare un posto\nper questo tipo di biglietto");
-            //else
-            //{
+            this.vagone = vagone;
             nomeCognome = generalita;
             dataCreazione = DateTime.Now;
             tipoBiglietto = tipo;
@@ -31,7 +28,18 @@ namespace ProgettoTreno
             posto = Treno[vagone].PrimoLibero;
             Treno[vagone].PrimoLibero++;
             Treno[vagone].passeggeri++;
-            //}
+        }
+
+        public static Biglietto? creaBiglietto(string tipo, string dest, List<Vagone> Treno, string generalita)
+        {
+            int vagone = Treno.FindIndex(v => v.bigliettiAccessibili.Contains(tipo.ToString()) && v.bigliettiAccessibili.Length == 1 && v.Disponibili > 0);
+            if (vagone == -1)
+            {
+                MessageBox.Show("Non è stato possibile trovare un posto\nper questo tipo di biglietto");
+                return null;
+            }
+            else return new Biglietto(tipo, dest, Treno, generalita, vagone);
+            
         }
 
         public override string ToString() => "Tipo biglietto: " + tipoBiglietto + "\nData e ora: " + dataCreazione.ToString("dd/MM/yyyy HH:mm") + "\nNumero vagone: " + (vagone + 1) + "\nNumero posto: " + (posto + 1) + "\ndestinazione: " + destinazione + "\nnome e cognome: " + nomeCognome;
