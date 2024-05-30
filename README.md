@@ -40,7 +40,7 @@ Tipi biglietto:
 
 ## Sezione treno (Parte destra)
 ### Gestione vagoni
-* Aggiunta vagone
+* Aggiunta vagone: 
 * Rimuovi vagone
 ### Gestione passeggeri
 * Sposta in altro vagone
