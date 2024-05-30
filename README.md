@@ -22,7 +22,16 @@ Funzioni principali
 
 ## Sezione utente (Parte sinistra)
 * #### Crea biglietto:  
-![](BigliettoVuoto.png)
+![](BigliettoVuoto.png)  
+Tipi biglietto:  
+* Prima classe: permette di accedere ai vagoni di tipo prima classe, fumatori, ristorante e silenzio.
+* Seconda classe: permette di accedere ai vagoni di tipo seconda classe e fumatori.
+* Full optional: permette di accedere ai vagoni di tipo cuccette, fumatori, ristorante e silenzio.
+
+**Destinazione**: permette di scegliere una destinazione tra le regioni d'Italia.  
+**Nome e cognome**: permette di inserire le generalità del passeggero.  
+
+*Dopo aver creato un biglietto non è più possibile modificare tipo e destinazione fino a quando non verranno eliminati i biglietti precedenti.*  
 * Mostra biglietto: visualizza le informazioni sui biglietti acquistati.
 * Elimina biglietto: elimina tutti i biglietti precedentemente acquistati.
 * Spostati nel vagone: permette di spostarsi nel vagone selezionato nella lista in basso a destra (*In base al tipo di biglietto acquistato*). 
