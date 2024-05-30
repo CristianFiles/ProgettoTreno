@@ -21,12 +21,13 @@ Funzioni principali
 ![](Gestore.png)
 
 ## Sezione utente (Parte sinistra)
-* Crea biglietto
-* Mostra biglietto
-* Elimina biglietto
-* Spostati nel vagone
-* Collega WiFi
-* Attacco presa
+* #### Crea biglietto:  
+![](BigliettoVuoto.png)
+* Mostra biglietto: visualizza le informazioni sui biglietti acquistati.
+* Elimina biglietto: elimina tutti i biglietti precedentemente acquistati.
+* Spostati nel vagone: permette di spostarsi nel vagone selezionato nella lista in basso a destra (*In base al tipo di biglietto acquistato*). 
+* Collega WiFi: verifica se è possibile collegarsi al WiFi nel vagone corrente. *I vagoni che si posso collegare sono di tipo prima classe, cuccette e silenzio.*
+* Attacco presa: verifica se è possibile utilizzare le prese elettriche nel vagone corrente. *I vagoni con le prese sono di tipo prima classe, seconda classe e cuccette.*
 
 ## Sezione treno (Parte destra)
 ### Gestione vagoni
