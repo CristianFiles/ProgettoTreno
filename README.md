@@ -1,17 +1,17 @@
 Progetto Treno
 ===============
-Il programma simula la gestione di un treno, permettendo all' utente di gestire un treno, ma anche di comprare i biglietti per esso.
+Il programma simula la gestione di un treno, permettendo all'utente di gestire un treno, ma anche di comprare i biglietti per esso.
 
 Abstract iniziale
 -----------------
-### L'abstract iniziale prevedeva la seguente struttura:
+### L'abstract prevedeva la seguente struttura:
 
-Tipi di vagone(letto,1a 2a 3a classe, silenzio, ristorante);  
+*Tipi di vagone (letto, 1a 2a 3a classe, silenzio, ristorante);  
 Cambio posto, salita, discesa;  
 Biglietteria;  
 Tabellone arrivi/partenze;  
 Carta per caricare biglietti e riscattare punti per viaggi gratis o sconti su viaggi;    
-2 form: simulazione del passeggero(salita, discesa, cambio posto), gestione del treno in cui si può vedere lo stato dei vagoni.  
+2 form: simulazione del passeggero(salita, discesa, cambio posto), gestione del treno in cui si può vedere lo stato dei vagoni.*  
 
 Durante la creazione del progetto ci siamo accorti della presenza di alcune funzioni che avrebbero richiesto troppo lavoro o che non avrebbero contribuito al progetto finale, 
 ad esempio la carta per i punti avrebbe richiesto il salvataggio dei dati su un file esterno. In corso d'opera abbiamo aggiunto diverse idee non presenti inizialmente, come ad esempio la gestione dei vagoni e dei suoi passeggeri.
@@ -40,15 +40,25 @@ Tipi biglietto:
 
 ## Sezione treno (Parte destra)
 ### Gestione vagoni
-* Aggiunta vagone: permette di scegliere il tipo di vagone da aggiungere inserendo la capienza e la posizione dove si vuole inserire il nuovo vagone.
+* Aggiunta vagone: permette di aggiungere un nuovo vagone.
+  1. Selezionare il tipo dalla lista drop-down;
+  2. Selezionare la posizione nel treno e la capienza;
+  3. Premere su "Aggiungi vagone".
 * Rimuovi vagone: permette di eliminare il vagone selezionato nella lista drop-down.
+
 ### Gestione passeggeri
-* Sposta in altro vagone: permette di spostare persone dal vagone selezionato nel tabella in basso a destra. nella sezione "Gestione passeggeri" andiamo a selezionare il vagone dove desideriamo spostare le persone e il numero di persone che vogliamo spostare.
-* Rimuovi o aggiungi: permette di scegliere un numero di persone che possono scendere o salire dal treno selezionando il vagone su cui si vuole eseguire l'azione nella tabella in basso a destra.
+* Sposta in altro vagone: permette di spostare dei passeggeri da un vagone a un altro.
+  1. Selezionare nella tabella in vagone da dove si vogliono spostare i passeggeri;
+  2. Selezionare la quantità di passeggeri da spostare;
+  3. Selezionare il vagone nel quale spostare i passeggeri;
+  4. Premere su "Sposta".
+* Rimuovi o aggiungi: permette di far scendere o salire delle persone nel vagone selezionato nella tabella.  
+*Solo i vagoni di tipo prima classe e seconda classe permettono di far salire o scendere dei passeggeri*
+*Nel caso si provi a far scendere più persone di quelle presenti nel vagone, il numero di passeggeri andrà di default a 0.*
 
 Autori
 ------
-Nello sviluppo non c'è stata una vera e propria suddivisione del lavoro, ognuno lavorava in base alle necessità del momento. Abbiamo lavorato utilizzando GitHub per avere in cloud sempre l'ultima versione del progetto, quando lavoravamo in più persone utilizzavamo l'estensione "Live Share" per Visual Studio 2022
+Nello sviluppo non c'è stata una vera e propria suddivisione del lavoro, ognuno lavorava in base alle necessità del momento. Abbiamo lavorato utilizzando GitHub per avere in cloud sempre l'ultima versione del progetto, quando lavoravamo in più persone contemporaneamente utilizzavamo l'estensione "Live Share" per Visual Studio 2022
 * Carteni Riccardo
 * Dal Pont Giona
 * Pirozzolo Cristian
