@@ -40,11 +40,11 @@ Tipi biglietto:
 
 ## Sezione treno (Parte destra)
 ### Gestione vagoni
-* Aggiunta vagone: 
-* Rimuovi vagone
+* Aggiunta vagone: permette di scegliere il tipo di vagone da aggiungere inserendo la capienza e la posizione dove si vuole inserire il nuovo vagone.
+* Rimuovi vagone: permette di eliminare il vagone selezionato nella lista drop-down.
 ### Gestione passeggeri
-* Sposta in altro vagone
-* Rimuovi o aggiungi
+* Sposta in altro vagone: permette di spostare persone dal vagone selezionato nel tabella in basso a destra. nella sezione "Gestione passeggeri" andiamo a selezionare il vagone dove desideriamo spostare le persone e il numero di persone che vogliamo spostare.
+* Rimuovi o aggiungi: permette di scegliere un numero di persone che possono scendere o salire dal treno selezionando il vagone su cui si vuole eseguire l'azione nella tabella in basso a destra.
 
 Autori
 ------
